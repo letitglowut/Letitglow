@@ -102,7 +102,49 @@
         .reveal { opacity: 0; transform: translateY(30px); transition: 1s var(--ease-out); }
         .reveal.visible { opacity: 1; transform: translateY(0); }
 
-        footer { padding: 80px 24px; text-align: center; border-top: 1px solid var(--glass-border); color: var(--text-secondary); }
+        footer { 
+    padding: 140px 24px; 
+    text-align: center; 
+    border-top: 1px solid var(--glass-border); 
+}
+
+.contact-card { 
+    max-width: 1100px; 
+    margin: 0 auto; 
+    padding: 120px 40px; 
+    background: linear-gradient(180deg, var(--bg-card), rgba(0,0,0,0.4));
+    border-radius: 60px; 
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(20px);
+}
+
+.contact-card h2 { 
+    font-size: clamp(4rem, 12vw, 8.5rem); 
+    font-weight: 800; 
+    letter-spacing: -0.05em; 
+    margin-bottom: 50px; 
+    line-height: 0.85; 
+    background: linear-gradient(to bottom, #fff 60%, #999);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.footer-cta { 
+    display: inline-block; 
+    background: white; 
+    color: black; 
+    padding: 30px 80px; 
+    border-radius: 100px; 
+    text-decoration: none; 
+    font-weight: 900; 
+    font-size: 1.8rem; 
+    transition: 0.4s cubic-bezier(0.15, 0, 0.15, 1);
+}
+
+.footer-cta:hover { 
+    transform: scale(1.08);
+    background: var(--accent-yellow); 
+}
         
         @media (max-width: 768px) { 
             .grid-container, .feature-split, .app-container, .step-grid, .types-grid { grid-template-columns: 1fr; }
@@ -256,12 +298,12 @@
     </main>
 
     <footer>
-        <div class="contact-card" style="max-width:800px; margin: 0 auto; padding: 60px; background: var(--bg-card); border-radius: 40px; text-align: center; border: 1px solid var(--glass-border);">
-            <h2>Ready to Glow?</h2>
-            <a href="tel:8014274110" style="display:inline-block; margin-top:30px; background:white; color:black; padding:20px 40px; border-radius:50px; text-decoration:none; font-weight:800;">(801) 427-4110</a>
-        </div>
-    </footer>
-
+    <div class="contact-card reveal">
+        <h2>Ready to Glow?</h2>
+        <a href="tel:8014274110" class="footer-cta">Get a Free Quote</a>
+        <p style="margin-top: 40px; color: var(--text-secondary); font-weight: 600; font-size: 1.3rem; letter-spacing: 0.1em;">(801) 427-4110</p>
+    </div>
+</footer>
     <script>
         const scrollThemes = [
             { b1: '#002855', b2: '#422006', b3: '#020617' }, 
