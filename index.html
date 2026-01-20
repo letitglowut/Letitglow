@@ -24,89 +24,91 @@
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
         body { font-family: 'Outfit', sans-serif; background-color: var(--bg-dark); color: var(--text-primary); line-height: 1.45; overflow-x: hidden; }
 
-        /* Animated Background */
+        /* SCROLLING BACKGROUND */
         .blob-viewport { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; background: var(--bg-dark); overflow: hidden; pointer-events: none; }
         .goo-wrapper { width: 100%; height: 100%; filter: blur(120px); opacity: 0.4; }
-        .lava-blob { position: absolute; border-radius: 50%; transition: background-color 1.5s var(--ease-out), transform 1s ease-out; animation: drift 30s infinite alternate ease-in-out; }
+        .lava-blob { position: absolute; border-radius: 50%; transition: background-color 1.5s var(--ease-out); animation: drift 30s infinite alternate ease-in-out; }
         .blob-1 { width: 80vw; height: 80vw; left: -10%; top: -10%; background-color: #1e3a8a; }
         .blob-2 { width: 70vw; height: 70vw; right: -5%; bottom: -5%; background-color: #422006; animation-delay: -7s; }
         .blob-3 { width: 60vw; height: 60vw; left: 20%; top: 20%; background-color: #1e1b4b; animation-delay: -15s; }
         @keyframes drift { 0% { transform: translate(0, 0) scale(1); } 50% { transform: translate(5vw, 10vh) scale(1.1); } 100% { transform: translate(-5vw, 5vh) scale(0.9); } }
 
-        /* Navigation */
-        header { position: fixed; top: 0; width: 100%; height: 70px; background: rgba(10, 10, 11, 0.8); backdrop-filter: saturate(180%) blur(20px); z-index: 1000; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid var(--glass-border); }
+        /* HEADER */
+        header { position: fixed; top: 0; width: 100%; height: 80px; background: rgba(10, 10, 11, 0.8); backdrop-filter: saturate(180%) blur(20px); z-index: 1000; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid var(--glass-border); }
         .nav-container { width: 100%; max-width: 1200px; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; }
-        .logo-text { font-size: 1.4rem; font-weight: 800; cursor: pointer; color: white; letter-spacing: -0.02em; }
-        .cta-button { background: white; color: #000; padding: 10px 24px; border-radius: 30px; font-size: 0.9rem; font-weight: 700; text-decoration: none; transition: 0.3s; border: none; cursor: pointer; }
+        .logo-group { cursor: pointer; display: flex; flex-direction: column; line-height: 1.1; }
+        .logo-text { font-size: 1.4rem; font-weight: 800; color: white; letter-spacing: -0.02em; }
+        .authorized-tag { font-size: 0.65rem; font-weight: 700; color: var(--accent-yellow); letter-spacing: 0.05em; text-transform: uppercase; }
+        .cta-button { background: white; color: #000; padding: 10px 24px; border-radius: 30px; font-size: 0.9rem; font-weight: 700; text-decoration: none; }
 
         /* VIEW SYSTEM */
         .view { display: none; opacity: 0; transform: translateY(20px); transition: 0.6s var(--ease-out); }
         .view.active { display: block; opacity: 1; transform: translateY(0); }
 
-        /* Hero */
+        /* HERO & GRIDS */
         .hero-section { min-height: 65vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 140px 24px 60px; }
         h1 { font-size: clamp(3.5rem, 10vw, 7rem); font-weight: 800; line-height: 0.9; margin-bottom: 24px; letter-spacing: -0.05em; background: linear-gradient(to bottom, #fff 50%, #666); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .tagline { font-size: 1.4rem; color: var(--text-secondary); max-width: 600px; margin-bottom: 40px; }
-        .reassurance { font-size: 1rem; color: var(--accent-yellow); font-weight: 600; margin-top: 10px; }
 
-        /* General Layout */
         .grid-container { max-width: 1100px; width: 100%; display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; padding: 0 24px; margin: 0 auto 100px; }
-        .selection-card { background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 40px; padding: 60px 40px; text-align: center; cursor: pointer; transition: 0.4s var(--ease-out); }
+        .selection-card { background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 40px; padding: 60px 40px; text-align: center; cursor: pointer; transition: 0.4s var(--ease-out); backdrop-filter: blur(10px); }
         .selection-card:hover { transform: translateY(-10px); border-color: var(--accent-yellow); background: rgba(255,255,255,0.06); }
 
-        /* Feature Sections */
+        /* SEAMLESS INFINITE GALLERY */
+        .gallery-container { width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; overflow: hidden; padding: 40px 0; }
+        .scrolly-wrapper { 
+            display: flex; gap: 24px; width: max-content; 
+            animation: scroll-loop 50s linear infinite; 
+            padding: 0 12px;
+        }
+        .scrolly-wrapper:hover { animation-play-state: paused; }
+        .gallery-item { flex: 0 0 350px; border-radius: 40px; overflow: hidden; aspect-ratio: 4/5; border: 1px solid var(--glass-border); }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+        /* Animation: move by width of 8 items + gap (350+24 = 374) */
+        @keyframes scroll-loop { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-374px * 8)); } }
+
+        /* FEATURE SPLIT */
         .feature-split { max-width: 1100px; margin: 100px auto; padding: 0 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
         .feature-img { border-radius: 40px; overflow: hidden; border: 1px solid var(--glass-border); background: var(--bg-card); }
         .feature-img img { width: 100%; display: block; object-fit: cover; }
         .check-list { list-style: none; color: var(--accent-green); font-weight: 600; margin-top: 20px; }
         .check-list li { margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
 
-        /* App Showcase Section (CSS Phone Mockup) */
+        /* APP SHOWCASE */
         .app-container { background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 50px; padding: 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; max-width: 1100px; margin: 100px auto; }
         .app-features { list-style: none; margin-top: 25px; }
         .app-features li { margin-bottom: 18px; display: flex; align-items: flex-start; gap: 12px; font-size: 1.05rem; }
         .app-features li i { color: var(--accent-blue); margin-top: 3px; flex-shrink: 0; }
 
-        /* Gallery */
-        .scrolly-wrapper { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 24px; padding: 40px 24px; scrollbar-width: none; }
-        .scrolly-wrapper::-webkit-scrollbar { display: none; }
-        .gallery-item { flex: 0 0 85vw; max-width: 450px; scroll-snap-align: center; border-radius: 40px; overflow: hidden; aspect-ratio: 4/5; border: 1px solid var(--glass-border); }
-        .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
-
-        /* Comparison Slider */
-        .comparison-container { position: relative; width: 100%; aspect-ratio: 16/9; border-radius: 50px; overflow: hidden; border: 1px solid var(--glass-border); }
+        /* COMPARISON SLIDER */
+        .comparison-container { position: relative; width: 100%; aspect-ratio: 16/9; border-radius: 50px; overflow: hidden; border: 1px solid var(--glass-border); margin: 40px 0; }
         .img-before { position: absolute; top: 0; left: 0; z-index: 2; width: 50%; border-right: 4px solid var(--accent-yellow); filter: brightness(0.3) grayscale(1); overflow: hidden; height: 100%; }
         .img-before img { width: 1100px; height: 100%; object-fit: cover; }
         .comparison-img-after { width: 100%; height: 100%; object-fit: cover; }
         .comparison-slider { position: absolute; z-index: 10; top: 0; left: 0; width: 100%; height: 100%; background: transparent; cursor: ew-resize; appearance: none; -webkit-appearance: none; }
 
-        /* FAQ/Process */
+        /* FAQ SECTION */
         .faq-section { max-width: 800px; margin: 100px auto; padding: 0 24px; }
         .faq-item { background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 24px; padding: 30px; margin-bottom: 15px; }
         .faq-item h4 { color: var(--accent-yellow); margin-bottom: 10px; font-size: 1.2rem; }
-        .step-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; max-width: 1100px; margin: 40px auto; padding: 0 24px; text-align: center; }
+
+        /* SUB-PAGE COMPONENTS */
+        .step-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; max-width: 1100px; margin: 60px auto; padding: 0 24px; text-align: center; }
         .step-num { width: 50px; height: 50px; background: var(--accent-yellow); color: #000; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-weight: 800; }
-
-        /* Commercial Specific */
-        .case-study { max-width: 1000px; margin: 40px auto; background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 48px; padding: 60px; text-align: center; }
         .types-grid { max-width: 1200px; margin: 80px auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; padding: 0 24px; }
-        .type-card { background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); border-radius: 24px; padding: 30px; text-align: center; transition: 0.3s; }
-        .type-card:hover { border-color: var(--accent-purple); background: rgba(168, 85, 247, 0.05); }
+        .type-card { background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); border-radius: 24px; padding: 30px; text-align: center; }
 
-        /* Contact Box Section */
-        .contact-box-section { max-width: 1100px; margin: 120px auto; padding: 0 24px; }
-        .contact-card { background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05)); border: 1px solid var(--glass-border); border-radius: 50px; padding: 80px 40px; text-align: center; backdrop-filter: blur(20px); }
-        .contact-card h2 { font-size: 3.5rem; margin-bottom: 20px; font-weight: 800; }
-        .contact-card p { font-size: 1.2rem; color: var(--text-secondary); margin-bottom: 40px; }
-        .contact-cta { display: inline-flex; align-items: center; gap: 15px; background: white; color: black; padding: 20px 40px; border-radius: 50px; font-size: 1.2rem; font-weight: 800; text-decoration: none; transition: 0.3s; }
-        .contact-cta:hover { transform: scale(1.05); }
-
+        /* REVEAL */
         .reveal { opacity: 0; transform: translateY(30px); transition: 1s var(--ease-out); }
         .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        footer { padding: 80px 24px; text-align: center; border-top: 1px solid var(--glass-border); color: var(--text-secondary); }
         
-        footer { padding: 80px 24px; text-align: center; border-top: 1px solid var(--glass-border); color: var(--text-secondary); background: rgba(0,0,0,0.2); }
-        
-        @media (max-width: 768px) { .grid-container, .feature-split, .step-grid, .types-grid, .app-container { grid-template-columns: 1fr; } .img-before img { width: 100vw; } .types-grid { grid-template-columns: repeat(2, 1fr); } .contact-card h2 { font-size: 2.5rem; } }
+        @media (max-width: 768px) { 
+            .grid-container, .feature-split, .app-container, .step-grid, .types-grid { grid-template-columns: 1fr; }
+            .types-grid { grid-template-columns: repeat(2, 1fr); }
+            .img-before img { width: 100vw; }
+        }
     </style>
 </head>
 <body>
@@ -115,7 +117,10 @@
 
     <header>
         <div class="nav-container">
-            <div class="logo-text" onclick="showView('home')">LET IT GLOW</div>
+            <div class="logo-group" onclick="showView('home')">
+                <span class="logo-text">LET IT GLOW</span>
+                <span class="authorized-tag">Authorized Everlights Dealer</span>
+            </div>
             <a href="tel:8014274110" class="cta-button">Free Quote</a>
         </div>
     </header>
@@ -123,8 +128,7 @@
     <main id="home-view" class="view active">
         <section class="hero-section">
             <h1 class="reveal">Your Home.<br>Transformed.</h1>
-            <p class="tagline reveal">Permanent lighting that disappears by day and dazzles by night.</p>
-            <p class="reassurance reveal">Custom solutions for every home</p>
+            <p class="tagline reveal">Permanent architectural lighting that disappears by day and dazzles by night.</p>
         </section>
 
         <section class="grid-container">
@@ -140,28 +144,57 @@
             </div>
         </section>
 
+        <section class="reveal">
+            <h2 style="text-align: center; font-size: 3rem; font-weight: 700;">Our Portfolio</h2>
+            <div class="gallery-container">
+                <div class="scrolly-wrapper">
+                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=600"></div>
+                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1513584684374-8bdb7489feef?auto=format&fit=crop&w=600"></div>
+                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600"></div>
+                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600"></div>
+                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600"></div>
+                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=600"></div>
+                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?auto=format&fit=crop&w=600"></div>
+                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1505691723518-36a5ac3be353?auto=format&fit=crop&w=600"></div>
+                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=600"></div>
+                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1513584684374-8bdb7489feef?auto=format&fit=crop&w=600"></div>
+                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600"></div>
+                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600"></div>
+                </div>
+            </div>
+        </section>
+
         <section class="feature-split reveal">
             <div class="feature-content">
                 <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Invisible by Day</h2>
-                <p style="color: var(--text-secondary); font-size: 1.2rem;">Our aluminum tracks are color-matched to your trim. No wires, no clips—just a seamless extension of your home.</p>
+                <p style="color: var(--text-secondary); font-size: 1.2rem;">Our aluminum tracks are color-matched to your trim. No wires, no clips.</p>
                 <ul class="check-list">
                     <li><i data-lucide="check-circle" size="18"></i> Custom Color Matching</li>
                     <li><i data-lucide="check-circle" size="18"></i> Hidden Wire Management</li>
                     <li><i data-lucide="check-circle" size="18"></i> Low-Profile "Cloud" Lens</li>
                 </ul>
             </div>
-            <div class="feature-img">
-                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800">
-            </div>
+            <div class="feature-img"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800"></div>
         </section>
 
-        <section class="reveal">
-            <h2 style="text-align: center; font-size: 3rem; font-weight: 700;">Our Recent Work</h2>
-            <div class="scrolly-wrapper">
-                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=800"></div>
-                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1513584684374-8bdb7489feef?auto=format&fit=crop&w=800"></div>
-                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800"></div>
-                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800"></div>
+        <section class="app-container reveal">
+            <div class="app-content">
+                <h2 style="font-size: 2.5rem; margin-bottom: 20px; font-weight: 700;">Dazzles by Night</h2>
+                <p style="color: var(--text-secondary); font-size: 1.15rem; margin-bottom: 30px;">16 million colors and thousands of patterns—all from your phone.</p>
+                <ul class="app-features">
+                    <li><i data-lucide="smartphone" size="22"></i><span><strong>Holiday Presets</strong> – One tap for Christmas</span></li>
+                    <li><i data-lucide="palette" size="22"></i><span><strong>16 Million Colors</strong> – Match any theme</span></li>
+                    <li><i data-lucide="calendar" size="22"></i><span><strong>Smart Scheduling</strong> – Set it and forget it</span></li>
+                </ul>
+            </div>
+            <div class="feature-img" style="background: #000; padding: 40px; display: flex; justify-content: center; align-items: center; min-height: 500px;">
+                <div style="width: 240px; height: 480px; background: #111; border: 8px solid #222; border-radius: 40px; position: relative; padding: 20px; display: flex; flex-direction: column; gap: 15px;">
+                    <div style="width: 60px; height: 4px; background: #333; border-radius: 10px; align-self: center;"></div>
+                    <div style="width: 100%; aspect-ratio: 1/1; border-radius: 50%; background: conic-gradient(red, yellow, lime, aqua, blue, magenta, red); border: 10px solid rgba(255,255,255,0.1);"></div>
+                    <div style="background: rgba(255,255,255,0.05); height: 40px; border-radius: 12px; display: flex; align-items: center; padding: 0 15px; font-size: 0.8rem; color: var(--accent-blue);">Schedule: 8:00 PM</div>
+                    <div style="background: rgba(255,255,255,0.05); height: 40px; border-radius: 12px; display: flex; align-items: center; padding: 0 15px; font-size: 0.8rem; color: var(--accent-green);">Pattern: Warm Glow</div>
+                    <div style="margin-top: auto; background: var(--accent-blue); height: 45px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 700; color: black; font-size: 0.9rem;">APPLY</div>
+                </div>
             </div>
         </section>
 
@@ -169,32 +202,8 @@
             <h2 style="text-align: center; margin-bottom: 40px; font-size: 3rem; font-weight: 700;">See the Difference</h2>
             <div class="comparison-container">
                 <img src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=1200" class="comparison-img-after">
-                <div class="img-before" id="sl-before-main">
-                    <img src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=1200">
-                </div>
+                <div class="img-before" id="sl-before-main"><img src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=1200"></div>
                 <input type="range" min="0" max="100" value="50" class="comparison-slider" oninput="document.getElementById('sl-before-main').style.width = this.value + '%'">
-            </div>
-        </section>
-
-        <section class="app-container reveal">
-            <div class="app-content">
-                <h2 style="font-size: 2.5rem; margin-bottom: 20px; font-weight: 700;">Total Control</h2>
-                <p style="color: var(--text-secondary); font-size: 1.15rem; margin-bottom: 30px;">16 million colors and thousands of patterns—all from your phone. Alexa and Google Home compatible.</p>
-                <ul class="app-features">
-                    <li><i data-lucide="smartphone" size="22"></i><span><strong>Holiday Presets</strong> – One tap for Christmas and more</span></li>
-                    <li><i data-lucide="palette" size="22"></i><span><strong>16 Million Colors</strong> – Match any mood instantly</span></li>
-                    <li><i data-lucide="calendar" size="22"></i><span><strong>Smart Scheduling</strong> – Set it once and forget it</span></li>
-                </ul>
-            </div>
-            <div class="feature-img" style="background: #000; padding: 40px; display: flex; justify-content: center; align-items: center; min-height: 500px; position: relative;">
-                <div style="position: absolute; width: 200px; height: 200px; background: var(--accent-blue); filter: blur(100px); opacity: 0.3;"></div>
-                <div style="width: 240px; height: 480px; background: #111; border: 8px solid #222; border-radius: 40px; position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.5); padding: 20px; display: flex; flex-direction: column; gap: 15px;">
-                    <div style="width: 60px; height: 4px; background: #333; border-radius: 10px; align-self: center; margin-bottom: 10px;"></div>
-                    <div style="width: 100%; aspect-ratio: 1/1; border-radius: 50%; background: conic-gradient(red, yellow, lime, aqua, blue, magenta, red); border: 10px solid rgba(255,255,255,0.1);"></div>
-                    <div style="background: rgba(255,255,255,0.05); height: 40px; border-radius: 12px; display: flex; align-items: center; padding: 0 15px; font-size: 0.8rem; color: var(--accent-blue);"><i data-lucide="timer" size="14" style="margin-right: 10px;"></i> Schedule: 8:00 PM</div>
-                    <div style="background: rgba(255,255,255,0.05); height: 40px; border-radius: 12px; display: flex; align-items: center; padding: 0 15px; font-size: 0.8rem; color: var(--accent-green);"><i data-lucide="zap" size="14" style="margin-right: 10px;"></i> Pattern: Warm Glow</div>
-                    <div style="margin-top: auto; background: var(--accent-blue); height: 45px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 700; color: black; font-size: 0.9rem;">APPLY CHANGES</div>
-                </div>
             </div>
         </section>
 
@@ -202,49 +211,72 @@
             <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 50px;">Common Questions</h2>
             <div class="faq-item"><h4>How long do the lights last?</h4><p>Rated for 50,000 hours—over 20 years of nightly use.</p></div>
             <div class="faq-item"><h4>What is the warranty?</h4><p>5-year product warranty and 2-year labor guarantee.</p></div>
+            <div class="faq-item"><h4>Is it smart-home compatible?</h4><p>Yes. Integrates with Amazon Alexa and Google Home.</p></div>
         </section>
     </main>
 
     <main id="residential-view" class="view">
-        <section class="hero-section"><h1>Home Lighting.</h1><p class="tagline">Permanent and seasonal installations.</p></section>
+        <section class="hero-section"><h1>Home Lighting.</h1></section>
         <div class="grid-container">
-            <div class="selection-card"><h3>Permanent</h3><p>Year-round architectural lighting.</p></div>
-            <div class="selection-card"><h3>Seasonal</h3><p>Full-service holiday lighting.</p></div>
+            <div class="selection-card">
+                <h3>Permanent</h3>
+                <ul class="check-list" style="text-align: left; max-width: 250px; margin: 20px auto;">
+                    <li>✓ App-controlled colors</li>
+                    <li>✓ Invisible during day</li>
+                    <li>✓ Weather-proof LEDs</li>
+                </ul>
+            </div>
+            <div class="selection-card">
+                <h3>Seasonal</h3>
+                <ul class="check-list" style="text-align: left; max-width: 250px; margin: 20px auto;">
+                    <li>✓ Custom fit to roof</li>
+                    <li>✓ Professional takedown</li>
+                    <li>✓ Local storage included</li>
+                </ul>
+            </div>
+        </div>
+        <div class="step-grid">
+            <div class="step"><div class="step-num">1</div><h4>Consult</h4></div>
+            <div class="step"><div class="step-num">2</div><h4>Design</h4></div>
+            <div class="step"><div class="step-num">3</div><h4>Install</h4></div>
+            <div class="step"><div class="step-num">4</div><h4>Enjoy</h4></div>
         </div>
     </main>
 
     <main id="commercial-view" class="view">
-        <section class="hero-section"><h1>Business Landmark.</h1><p class="tagline">Custom color-matched lighting.</p></section>
-        <div class="case-study"><i data-lucide="cookie" style="color: #f472b6; margin-bottom: 25px;" size="64"></i><h3>Crumbl Cookies</h3><p>We provide exact brand-color matching.</p></div>
+        <section class="hero-section"><h1>Business Landmark.</h1></section>
+        <div style="max-width: 800px; margin: 0 auto 60px; text-align: center; padding: 60px; background: var(--bg-card); border-radius: 48px; border: 1px solid var(--glass-border);">
+            <i data-lucide="cookie" style="color: #f472b6; margin-bottom: 25px;" size="64"></i>
+            <h3>Crumbl Cookies</h3>
+            <p>Exact brand-color matching storefronts for professional presence.</p>
+        </div>
+        <div class="types-grid">
+            <div class="type-card"><h4>Restaurants</h4></div><div class="type-card"><h4>Car Washes</h4></div><div class="type-card"><h4>Retail</h4></div><div class="type-card"><h4>Gyms</h4></div><div class="type-card"><h4>Coffee</h4></div><div class="type-card"><h4>Office</h4></div><div class="type-card"><h4>Hotels</h4></div><div class="type-card"><h4>Corporate</h4></div>
+        </div>
     </main>
 
-    <section class="contact-box-section reveal">
-        <div class="contact-card">
+    <footer>
+        <div class="contact-card" style="max-width:800px; margin: 0 auto; padding: 60px; background: var(--bg-card); border-radius: 40px; text-align: center; border: 1px solid var(--glass-border);">
             <h2>Ready to Glow?</h2>
-            <p>Get a free estimate today.</p>
-            <a href="tel:8014274110" class="contact-cta"><i data-lucide="phone"></i> (801) 427-4110</a>
+            <a href="tel:8014274110" style="display:inline-block; margin-top:30px; background:white; color:black; padding:20px 40px; border-radius:50px; text-decoration:none; font-weight:800;">(801) 427-4110</a>
         </div>
-    </section>
-
-    <footer><p>&copy; 2024 LET IT GLOW</p></footer>
+    </footer>
 
     <script>
         const scrollThemes = [
             { b1: '#002855', b2: '#422006', b3: '#020617' }, 
             { b1: '#3b82f6', b2: '#1e3a8a', b3: '#1d4ed8' }, 
-            { b1: '#7c3aed', b2: '#2e1065', b3: '#4c1d95' }, 
-            { b1: '#f97316', b2: '#422006', b3: '#78350f' }  
+            { b1: '#7c3aed', b2: '#2e1065', b3: '#4c1d95' }
         ];
 
         function updateBackgroundOnScroll() {
             const scrollPercent = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
-            const themeIndex = Math.min(Math.floor(scrollPercent * (scrollThemes.length - 1)), scrollThemes.length - 2);
+            const themeIndex = Math.min(Math.floor(scrollPercent * (scrollThemes.length - 1)), scrollThemes.length - 1);
             const blobs = document.querySelectorAll('.lava-blob');
-            if (blobs.length >= 3) {
+            if (blobs.length >= 3 && scrollThemes[themeIndex]) {
                 blobs[0].style.backgroundColor = scrollThemes[themeIndex].b1;
                 blobs[1].style.backgroundColor = scrollThemes[themeIndex].b2;
                 blobs[2].style.backgroundColor = scrollThemes[themeIndex].b3;
-                blobs[0].style.transform = `translate(${scrollPercent * 50}px, ${scrollPercent * -20}px)`;
             }
         }
 
@@ -252,8 +284,7 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
             document.querySelectorAll('.view').forEach(view => view.classList.remove('active'));
             document.getElementById(v + '-view').classList.add('active');
-            updateBackgroundOnScroll();
-            setTimeout(initScrollReveal, 100);
+            setTimeout(initScrollReveal, 150);
         }
 
         function initScrollReveal() {
