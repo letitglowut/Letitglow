@@ -34,8 +34,29 @@
         @keyframes drift { 0% { transform: translate(0, 0) scale(1); } 50% { transform: translate(5vw, 10vh) scale(1.1); } 100% { transform: translate(-5vw, 5vh) scale(0.9); } }
 
         /* HEADER */
-        header { position: fixed; top: 0; width: 100%; height: 80px; background: rgba(10, 10, 11, 0.8); backdrop-filter: saturate(180%) blur(20px); z-index: 1000; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid var(--glass-border); }
-        .nav-container { width: 100%; max-width: 1200px; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; }
+        header { 
+    position: fixed; 
+    top: 0; 
+    width: 100%; 
+    height: 80px; 
+    background: rgba(10, 10, 11, 0.8); 
+    backdrop-filter: saturate(180%) blur(20px); 
+    z-index: 1000; 
+    display: flex; 
+    align-items: center; 
+    /* Remove justify-content: center from here */
+    border-bottom: 1px solid var(--glass-border); 
+}
+
+.nav-container { 
+    width: 100%; 
+    max-width: 1200px; 
+    margin: 0 auto; /* This centers the container area, not the items */
+    padding: 0 24px; 
+    display: flex; 
+    justify-content: space-between; /* This pushes logo left and button right */
+    align-items: center; 
+}
         .logo-group { cursor: pointer; display: flex; flex-direction: column; line-height: 1.1; }
         .logo-text { font-size: 1.4rem; font-weight: 800; color: white; letter-spacing: -0.02em; }
         .authorized-tag { font-size: 0.65rem; font-weight: 700; color: var(--accent-yellow); letter-spacing: 0.05em; text-transform: uppercase; }
@@ -46,9 +67,26 @@
         .view.active { display: block; opacity: 1; transform: translateY(0); }
 
         /* HERO & GRIDS */
-        .hero-section { min-height: 65vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 140px 24px 60px; }
-        h1 { font-size: clamp(3.5rem, 10vw, 7rem); font-weight: 800; line-height: 0.9; margin-bottom: 24px; letter-spacing: -0.05em; background: linear-gradient(to bottom, #fff 50%, #666); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .tagline { font-size: 1.4rem; color: var(--text-secondary); max-width: 600px; margin-bottom: 40px; }
+        .hero-section { 
+    min-height: 60vh; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    text-align: center; 
+    padding: 120px 24px 40px; 
+}
+        h1 { 
+    font-size: clamp(3rem, 10vw, 6.5rem); 
+    font-weight: 800; 
+    line-height: 1.2; 
+    margin-bottom: 15px; 
+    letter-spacing: -0.04em; 
+    background: linear-gradient(to bottom, #fff 60%, #999); 
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent;
+    display: block;
+}
 
         .grid-container { max-width: 1100px; width: 100%; display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; padding: 0 24px; margin: 0 auto 100px; }
         .selection-card { background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 40px; padding: 60px 40px; text-align: center; cursor: pointer; transition: 0.4s var(--ease-out); backdrop-filter: blur(10px); }
@@ -82,7 +120,7 @@
 
         /* COMPARISON SLIDER */
         .comparison-container { position: relative; width: 100%; aspect-ratio: 16/9; border-radius: 50px; overflow: hidden; border: 1px solid var(--glass-border); margin: 40px 0; }
-        .img-before { position: absolute; top: 0; left: 0; z-index: 2; width: 50%; border-right: 4px solid var(--accent-yellow); filter: brightness(0.3) grayscale(1); overflow: hidden; height: 100%; }
+        .img-before { position: absolute; top: 0; left: 0; z-index: 2; width: 50%; border-right: 4px solid var(--accent-yellow); overflow: hidden; height: 100%; }
         .img-before img { width: 1100px; height: 100%; object-fit: cover; }
         .comparison-img-after { width: 100%; height: 100%; object-fit: cover; }
         .comparison-slider { position: absolute; z-index: 10; top: 0; left: 0; width: 100%; height: 100%; background: transparent; cursor: ew-resize; appearance: none; -webkit-appearance: none; }
@@ -157,11 +195,11 @@
 
     <div class="blob-viewport"><div class="goo-wrapper"><div class="lava-blob blob-1"></div><div class="lava-blob blob-2"></div><div class="lava-blob blob-3"></div></div></div>
 
-    <header>
+  <header>
         <div class="nav-container">
-            <div class="logo-group" onclick="showView('home')">
-                <span class="logo-text">LET IT GLOW</span>
-                <span class="authorized-tag">Authorized Everlights Dealer</span>
+            <div class="logo-group" onclick="showView('home')" style="text-align: left;">
+                <span style="font-size: 1.6rem; font-weight: 800; color: white; letter-spacing: -0.03em;">LET IT GLOW</span>
+                <span style="font-size: 0.65rem; font-weight: 700; color: var(--accent-yellow); letter-spacing: 0.1em; text-transform: uppercase; margin-top: -2px; display: block;">Authorized Everlights Dealer</span>
             </div>
             <a href="tel:8014274110" class="cta-button">Free Quote</a>
         </div>
@@ -177,39 +215,35 @@
             <div class="selection-card reveal" onclick="showView('residential')">
                 <i data-lucide="home" style="color: var(--accent-blue); margin-bottom: 25px;" size="48"></i>
                 <h2>For My Home</h2>
-                <p>Invisible tracks custom-matched to your home's trim.</p>
+                <p>Invisible tracks custom matched to your home's trim.</p>
             </div>
             <div class="selection-card reveal" onclick="showView('commercial')">
                 <i data-lucide="building-2" style="color: var(--accent-purple); margin-bottom: 25px;" size="48"></i>
                 <h2>For My Business</h2>
-                <p>High-impact lighting that turns storefronts into landmarks.</p>
+                <p>High impact lighting that turns storefronts into landmarks.</p>
             </div>
         </section>
 
         <section class="reveal">
-            <h2 style="text-align: center; font-size: 3rem; font-weight: 700;">Our Portfolio</h2>
+            <h2 style="text-align: center; font-size: 3rem; font-weight: 700;">Homes Lit</h2>
             <div class="gallery-container">
                 <div class="scrolly-wrapper">
-                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=600"></div>
-                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1513584684374-8bdb7489feef?auto=format&fit=crop&w=600"></div>
-                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600"></div>
-                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600"></div>
-                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600"></div>
-                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=600"></div>
-                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?auto=format&fit=crop&w=600"></div>
-                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1505691723518-36a5ac3be353?auto=format&fit=crop&w=600"></div>
-                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=600"></div>
-                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1513584684374-8bdb7489feef?auto=format&fit=crop&w=600"></div>
-                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600"></div>
-                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600"></div>
-                </div>
+    <div class="gallery-item"><img src="DSC06993-HDR.jpg"></div>
+    <div class="gallery-item"><img src="DSC06342-HDR.jpg"></div>
+    <div class="gallery-item"><img src="DJI_0994.jpg"></div>
+    <div class="gallery-item"><img src="DSC04630-HDR.jpg"></div>
+    <div class="gallery-item"><img src="DSC04600-HDR.jpg"></div>
+    <div class="gallery-item"><img src="DSC02583-HDR.jpg"></div>
+    <div class="gallery-item"><img src="DSC02578-HDR.jpg"></div>
+    <div class="gallery-item"><img src="DSC06993-HDR.jpg"></div>
+</div>
             </div>
         </section>
 
         <section class="feature-split reveal">
             <div class="feature-content">
                 <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Invisible by Day</h2>
-                <p style="color: var(--text-secondary); font-size: 1.2rem;">Our aluminum tracks are color-matched to your trim. No wires, no clips.</p>
+                <p style="color: var(--text-secondary); font-size: 1.2rem;">Everlights aluminum tracks are color matched to your trim. No wires, no clips.</p>
                 <ul class="check-list">
                     <li><i data-lucide="check-circle" size="18"></i> Custom Color Matching</li>
                     <li><i data-lucide="check-circle" size="18"></i> Hidden Wire Management</li>
@@ -240,11 +274,11 @@
             </div>
         </section>
 
-        <section class="reveal" style="max-width: 1100px; margin: 120px auto; padding: 0 24px;">
+       <section class="reveal" style="max-width: 1100px; margin: 120px auto; padding: 0 24px;">
             <h2 style="text-align: center; margin-bottom: 40px; font-size: 3rem; font-weight: 700;">See the Difference</h2>
             <div class="comparison-container">
-                <img src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=1200" class="comparison-img-after">
-                <div class="img-before" id="sl-before-main"><img src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=1200"></div>
+                <img src="DSC06342-HDR.jpg" class="comparison-img-after">
+                <div class="img-before" id="sl-before-main"><img src="DSC06270-HDR.jpg"></div>
                 <input type="range" min="0" max="100" value="50" class="comparison-slider" oninput="document.getElementById('sl-before-main').style.width = this.value + '%'">
             </div>
         </section>
