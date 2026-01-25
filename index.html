@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Let It Glow | Authorized Everlights Dealer</title>
+    <title>Let It Glow</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
@@ -38,23 +38,22 @@
     position: fixed; 
     top: 0; 
     width: 100%; 
-    height: 80px; 
-    background: rgba(10, 10, 11, 0.8); 
+    height: 100px; 
+    background: #06011d; 
     backdrop-filter: saturate(180%) blur(20px); 
     z-index: 1000; 
     display: flex; 
     align-items: center; 
-    /* Remove justify-content: center from here */
     border-bottom: 1px solid var(--glass-border); 
 }
 
 .nav-container { 
     width: 100%; 
     max-width: 1200px; 
-    margin: 0 auto; /* This centers the container area, not the items */
+    margin: 0 auto;
     padding: 0 24px; 
     display: flex; 
-    justify-content: space-between; /* This pushes logo left and button right */
+    justify-content: space-between;
     align-items: center; 
 }
         .logo-group { cursor: pointer; display: flex; flex-direction: column; line-height: 1.1; }
@@ -74,7 +73,7 @@
     justify-content: center; 
     align-items: center; 
     text-align: center; 
-    padding: 120px 24px 40px; 
+    padding: 160px 24px 40px; 
 }
         h1 { 
     font-size: clamp(3rem, 10vw, 6.5rem); 
@@ -129,6 +128,67 @@
         .faq-section { max-width: 800px; margin: 100px auto; padding: 0 24px; }
         .faq-item { background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 24px; padding: 30px; margin-bottom: 15px; }
         .faq-item h4 { color: var(--accent-yellow); margin-bottom: 10px; font-size: 1.2rem; }
+
+        /* NEW: ABOUT US SECTION */
+        .about-section { 
+            max-width: 900px; 
+            margin: 120px auto; 
+            padding: 80px 60px; 
+            background: var(--bg-card); 
+            border: 1px solid var(--glass-border); 
+            border-radius: 50px; 
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+        .about-section h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            background: linear-gradient(to bottom, #fff 60%, #999);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .about-section p {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        /* NEW: BRAND STORY SECTION */
+        .story-section {
+            max-width: 1100px;
+            margin: 120px auto;
+            padding: 0 24px;
+        }
+        .story-section h2 {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 60px;
+        }
+        .story-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        .story-card {
+            background: var(--bg-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 40px;
+            padding: 50px 40px;
+            backdrop-filter: blur(10px);
+        }
+        .story-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--accent-yellow);
+        }
+        .story-card p {
+            font-size: 1.15rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
 
         /* SUB-PAGE COMPONENTS */
         .step-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; max-width: 1100px; margin: 60px auto; padding: 0 24px; text-align: center; }
@@ -188,6 +248,11 @@
             .grid-container, .feature-split, .app-container, .step-grid, .types-grid { grid-template-columns: 1fr; }
             .types-grid { grid-template-columns: repeat(2, 1fr); }
             .img-before img { width: 100vw; }
+            .story-grid { grid-template-columns: 1fr; }
+            .stat-grid { grid-template-columns: repeat(2, 1fr) !important; }
+            header .nav-container > div:last-child { gap: 15px !important; }
+            header .nav-container > div:last-child a:not(.cta-button) { display: none; }
+            footer > div:first-child > div { grid-template-columns: 1fr !important; }
         }
     </style>
 </head>
@@ -197,11 +262,16 @@
 
   <header>
         <div class="nav-container">
-            <div class="logo-group" onclick="showView('home')" style="text-align: left;">
-                <span style="font-size: 1.6rem; font-weight: 800; color: white; letter-spacing: -0.03em;">LET IT GLOW</span>
-                <span style="font-size: 0.65rem; font-weight: 700; color: var(--accent-yellow); letter-spacing: 0.1em; text-transform: uppercase; margin-top: -2px; display: block;">Authorized Everlights Dealer</span>
+            <div class="logo-group" onclick="showView('home')" style="cursor: pointer; display: flex; align-items: center;">
+                <img src="Logo.png" alt="Let It Glow" style="height: 200px; display: block;">
             </div>
-            <a href="tel:8014274110" class="cta-button">Free Quote</a>
+            <div style="display: flex; gap: 25px; align-items: center;">
+                <a onclick="showView('story')" style="color: white; text-decoration: none; font-weight: 600; cursor: pointer; font-size: 0.95rem;">About</a>
+                <a onclick="showView('app')" style="color: white; text-decoration: none; font-weight: 600; cursor: pointer; font-size: 0.95rem;">App</a>
+                <a onclick="showView('warranty')" style="color: white; text-decoration: none; font-weight: 600; cursor: pointer; font-size: 0.95rem;">Warranty</a>
+                <a onclick="showView('faq')" style="color: white; text-decoration: none; font-weight: 600; cursor: pointer; font-size: 0.95rem;">FAQs</a>
+                <a href="tel:8014274110" class="cta-button">Free Quote</a>
+            </div>
         </div>
     </header>
 
@@ -224,20 +294,64 @@
             </div>
         </section>
 
+        <!-- HOW IT WORKS -->
+        <section class="reveal" style="max-width: 1100px; margin: 100px auto; padding: 0 24px;">
+            <h2 style="text-align: center; font-size: 3rem; font-weight: 700; margin-bottom: 30px;">How It Works</h2>
+            <p style="text-align: center; font-size: 1.2rem; color: var(--text-secondary); max-width: 800px; margin: 0 auto 60px;">Our team of trained professionals will create a custom designed light layout for your home or business. You'll be in full control from the ground.</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;">
+                <div style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 40px; padding: 50px 35px; text-align: center; backdrop-filter: blur(10px);">
+                    <div style="width: 70px; height: 70px; background: var(--accent-yellow); color: #000; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; font-weight: 900; font-size: 2rem;">1</div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 15px;">Custom Design</h3>
+                    <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.7;">We create a personalized light layout for your roofline with hidden channels and color-matched trim</p>
+                </div>
+                <div style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 40px; padding: 50px 35px; text-align: center; backdrop-filter: blur(10px);">
+                    <div style="width: 70px; height: 70px; background: var(--accent-blue); color: #000; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; font-weight: 900; font-size: 2rem;">2</div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 15px;">Professional Install</h3>
+                    <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.7;">Our certified team handles everything—no ladders, no stress, just expert installation you can trust</p>
+                </div>
+                <div style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 40px; padding: 50px 35px; text-align: center; backdrop-filter: blur(10px);">
+                    <div style="width: 70px; height: 70px; background: var(--accent-purple); color: #000; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; font-weight: 900; font-size: 2rem;">3</div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 15px;">Total Control</h3>
+                    <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.7;">Use your smartphone app to change colors, patterns, and schedules—all customized from the ground</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA AFTER HOW IT WORKS -->
+        <div style="text-align: center; margin: 80px auto; max-width: 600px; padding: 0 24px;">
+            <a href="tel:8014274110" style="display: inline-block; background: white; color: black; padding: 20px 60px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 1.2rem; transition: 0.3s; box-shadow: 0 10px 30px rgba(255,255,255,0.1);">Get Your Free Quote</a>
+        </div>
+
         <section class="reveal">
             <h2 style="text-align: center; font-size: 3rem; font-weight: 700;">Homes Lit</h2>
             <div class="gallery-container">
                 <div class="scrolly-wrapper">
     <div class="gallery-item"><img src="DSC06993-HDR.jpg"></div>
-    <div class="gallery-item"><img src="DSC06342-HDR.jpg"></div>
-    <div class="gallery-item"><img src="DJI_0994.jpg"></div>
+    <div class="gallery-item"><img src="House3.jpg"></div>
+    <div class="gallery-item"><img src="House4.jpg"></div>
     <div class="gallery-item"><img src="DSC04630-HDR.jpg"></div>
-    <div class="gallery-item"><img src="DSC04600-HDR.jpg"></div>
-    <div class="gallery-item"><img src="DSC02583-HDR.jpg"></div>
+    <div class="gallery-item"><img src="House5.jpg"></div>
+    <div class="gallery-item"><img src="House2.jpg"></div>
     <div class="gallery-item"><img src="DSC02578-HDR.jpg"></div>
-    <div class="gallery-item"><img src="DSC06993-HDR.jpg"></div>
+    <div class="gallery-item"><img src="House1.jpg"></div>
 </div>
             </div>
+        </section>
+
+        <!-- VALUE PROPOSITION (Time savings) -->
+        <section class="feature-split reveal" style="margin-top: 120px;">
+            <div class="feature-content">
+                <h2 style="font-size: 2.5rem; margin-bottom: 20px;">What's Your Time Worth?</h2>
+                <p style="color: var(--text-secondary); font-size: 1.2rem; margin-bottom: 20px;">The average homeowner spends <strong style="color: var(--accent-yellow);">7.3 hours per year</strong> putting up and taking down holiday lights that are only illuminated for 3-5 weeks.</p>
+                <p style="color: var(--text-secondary); font-size: 1.2rem; margin-bottom: 20px;">With Let It Glow's one time installation, you'll get up to <strong style="color: var(--accent-yellow);">20 years</strong> of permanent lighting that's customizable 365 days per year.</p>
+                <ul class="check-list">
+                    <li><i data-lucide="check-circle" size="18"></i> One Time Professional Install</li>
+                    <li><i data-lucide="check-circle" size="18"></i> No More Ladder Risks</li>
+                    <li><i data-lucide="check-circle" size="18"></i> Use Every Day of the Year</li>
+                </ul>
+            </div>
+            <div class="feature-img"><img src="Multicolored.MP4"></div>
         </section>
 
         <section class="feature-split reveal">
@@ -247,16 +361,47 @@
                 <ul class="check-list">
                     <li><i data-lucide="check-circle" size="18"></i> Custom Color Matching</li>
                     <li><i data-lucide="check-circle" size="18"></i> Hidden Wire Management</li>
-                    <li><i data-lucide="check-circle" size="18"></i> Low-Profile "Cloud" Lens</li>
-                </ul>
+
             </div>
-            <div class="feature-img"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800"></div>
+            <div class="feature-img"><img src="Zoom.gif"></div>
         </section>
+
+        <!-- YEAR ROUND USE SECTION -->
+        <section class="reveal" style="max-width: 1100px; margin: 120px auto; padding: 0 24px;">
+            <h2 style="text-align: center; font-size: 3rem; font-weight: 700; margin-bottom: 60px;">More Than Just Christmas</h2>
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px;">
+                <div style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 30px; padding: 40px 30px; text-align: center; backdrop-filter: blur(10px);">
+                    <i data-lucide="calendar" style="color: var(--accent-yellow); margin-bottom: 20px;" size="48"></i>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 15px;">Year Round Use</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;">Great for holidays, parties, events, or everyday accent lighting</p>
+                </div>
+                <div style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 30px; padding: 40px 30px; text-align: center; backdrop-filter: blur(10px);">
+                    <i data-lucide="shield-check" style="color: var(--accent-blue); margin-bottom: 20px;" size="48"></i>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 15px;">Stay Off The Roof</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;">We handle the install, skip the dangerous ladder climbs forever</p>
+                </div>
+                <div style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 30px; padding: 40px 30px; text-align: center; backdrop-filter: blur(10px);">
+                    <i data-lucide="sparkles" style="color: var(--accent-purple); margin-bottom: 20px;" size="48"></i>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 15px;">Endless Light Shows</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;">Preset colors and patterns or design your own with the app</p>
+                </div>
+                <div style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 30px; padding: 40px 30px; text-align: center; backdrop-filter: blur(10px);">
+                    <i data-lucide="zap" style="color: var(--accent-green); margin-bottom: 20px;" size="48"></i>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 15px;">Built To Last</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;">Save time and money with 20+ years of reliable use</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA AFTER YEAR ROUND SECTION -->
+        <div style="text-align: center; margin: 80px auto; max-width: 600px; padding: 0 24px;">
+            <a href="tel:8014274110" style="display: inline-block; background: var(--accent-yellow); color: black; padding: 20px 60px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 1.2rem; transition: 0.3s;">Schedule Free Consultation</a>
+        </div>
 
         <section class="app-container reveal">
             <div class="app-content">
                 <h2 style="font-size: 2.5rem; margin-bottom: 20px; font-weight: 700;">Dazzles by Night</h2>
-                <p style="color: var(--text-secondary); font-size: 1.15rem; margin-bottom: 30px;">16 million colors and thousands of patterns—all from your phone.</p>
+                <p style="color: var(--text-secondary); font-size: 1.15rem; margin-bottom: 30px;">16 million colors and thousands of patterns all from your phone.</p>
                 <ul class="app-features">
                     <li><i data-lucide="smartphone" size="22"></i><span><strong>Holiday Presets</strong> – One tap for Christmas</span></li>
                     <li><i data-lucide="palette" size="22"></i><span><strong>16 Million Colors</strong> – Match any theme</span></li>
@@ -283,21 +428,146 @@
             </div>
         </section>
 
-        <section class="faq-section reveal">
-            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 50px;">Common Questions</h2>
-            <div class="faq-item"><h4>How long do the lights last?</h4><p>Rated for 50,000 hours—over 20 years of nightly use.</p></div>
-            <div class="faq-item"><h4>What is the warranty?</h4><p>5-year product warranty and 2-year labor guarantee.</p></div>
-            <div class="faq-item"><h4>Is it smart-home compatible?</h4><p>Yes. Integrates with Amazon Alexa and Google Home.</p></div>
+        <!-- TESTIMONIALS SECTION -->
+        <section class="reveal" style="max-width: 1100px; margin: 120px auto; padding: 0 24px;">
+            <h2 style="text-align: center; font-size: 3rem; font-weight: 700; margin-bottom: 60px;">What Our Customers Say</h2>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;">
+                <div style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 30px; padding: 40px; backdrop-filter: blur(10px);">
+                    <div style="display: flex; gap: 5px; margin-bottom: 20px;">
+                        <span style="color: var(--accent-yellow); font-size: 1.3rem;">★★★★★</span>
+                    </div>
+                    <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-secondary); margin-bottom: 20px;">"The installation was flawless and the lights look incredible. We've had so many neighbors ask where we got them. Best investment we've made for our home!"</p>
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <div style="width: 50px; height: 50px; background: var(--accent-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.3rem;">M</div>
+                        <div>
+                            <div style="font-weight: 700; font-size: 1.05rem;">Mike R.</div>
+                            <div style="color: var(--text-secondary); font-size: 0.9rem;">Orem, UT</div>
+                        </div>
+                    </div>
+                </div>
+                <div style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 30px; padding: 40px; backdrop-filter: blur(10px);">
+                    <div style="display: flex; gap: 5px; margin-bottom: 20px;">
+                        <span style="color: var(--accent-yellow); font-size: 1.3rem;">★★★★★</span>
+                    </div>
+                    <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-secondary); margin-bottom: 20px;">"No more climbing on the roof! The app is so easy to use and the colors are amazing. Worth every penny for the convenience and safety."</p>
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <div style="width: 50px; height: 50px; background: var(--accent-purple); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.3rem;">J</div>
+                        <div>
+                            <div style="font-weight: 700; font-size: 1.05rem;">Jennifer S.</div>
+                            <div style="color: var(--text-secondary); font-size: 0.9rem;">Provo, UT</div>
+                        </div>
+                    </div>
+                </div>
+                <div style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 30px; padding: 40px; backdrop-filter: blur(10px);">
+                    <div style="display: flex; gap: 5px; margin-bottom: 20px;">
+                        <span style="color: var(--accent-yellow); font-size: 1.3rem;">★★★★★</span>
+                    </div>
+                    <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-secondary); margin-bottom: 20px;">"Professional service from start to finish. They matched our trim perfectly and the install was done in one day. Couldn't be happier!"</p>
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <div style="width: 50px; height: 50px; background: var(--accent-green); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.3rem;">D</div>
+                        <div>
+                            <div style="font-weight: 700; font-size: 1.05rem;">David M.</div>
+                            <div style="color: var(--text-secondary); font-size: 0.9rem;">Lehi, UT</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
+
+        <!-- HOW TO GET STARTED SECTION -->
+        <section class="reveal" style="max-width: 1100px; margin: 120px auto; padding: 0 24px;">
+            <h2 style="text-align: center; font-size: 3rem; font-weight: 700; margin-bottom: 20px;">How to Get Started</h2>
+            <p style="text-align: center; font-size: 1.2rem; color: var(--text-secondary); max-width: 700px; margin: 0 auto 60px;">From first call to lights on here's exactly what to expect</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px;">
+                <div style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 40px; padding: 50px 35px; text-align: center; backdrop-filter: blur(10px); position: relative;">
+                    <div style="width: 70px; height: 70px; background: var(--accent-yellow); color: #000; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; font-weight: 900; font-size: 2rem;">1</div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 15px;">Free Consultation</h3>
+                    <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.7;">Call us and we'll schedule a convenient time to visit your home. Takes 30-45 minutes.</p>
+                    <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--glass-border); font-size: 0.9rem; color: var(--accent-yellow); font-weight: 700;">No Obligation</div>
+                </div>
+                
+                <div style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 40px; padding: 50px 35px; text-align: center; backdrop-filter: blur(10px);">
+                    <div style="width: 70px; height: 70px; background: var(--accent-blue); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; font-weight: 900; font-size: 2rem;">2</div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 15px;">Custom Quote</h3>
+                    <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.7;">We measure your roofline, discuss your vision, and create a detailed proposal with pricing.</p>
+                    <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--glass-border); font-size: 0.9rem; color: var(--accent-blue); font-weight: 700;">Within 24-48 Hours</div>
+                </div>
+                
+                <div style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 40px; padding: 50px 35px; text-align: center; backdrop-filter: blur(10px);">
+                    <div style="width: 70px; height: 70px; background: var(--accent-purple); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; font-weight: 900; font-size: 2rem;">3</div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 15px;">Schedule Install</h3>
+                    <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.7;">Pick a date that works for you. Most residential installations complete in just 1-2 days.</p>
+                    <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--glass-border); font-size: 0.9rem; color: var(--accent-purple); font-weight: 700;">At Your Convenience</div>
+                </div>
+                
+                <div style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 40px; padding: 50px 35px; text-align: center; backdrop-filter: blur(10px);">
+                    <div style="width: 70px; height: 70px; background: var(--accent-green); color: #000; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; font-weight: 900; font-size: 2rem;">4</div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 15px;">Start Glowing</h3>
+                    <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.7;">We'll show you how to use the app and you're ready to illuminate your home year-round!</p>
+                    <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--glass-border); font-size: 0.9rem; color: var(--accent-green); font-weight: 700;">Full Training Included</div>
+                </div>
+            </div>
+
+            <!-- Timeline Note -->
+            <div style="background: rgba(255,220,0,0.1); border: 1px solid var(--accent-yellow); border-radius: 30px; padding: 30px 40px; margin-top: 50px; text-align: center;">
+                <p style="font-size: 1.1rem; color: var(--text-primary); line-height: 1.6;"><strong style="color: var(--accent-yellow);">Planning Ahead?</strong> We recommend booking 2-4 weeks in advance for holiday installations. Year round installations available with shorter lead times.</p>
+            </div>
+        </section>
+
+        <!-- CTA AFTER GET STARTED -->
+        <div style="text-align: center; margin: 80px auto; max-width: 700px; padding: 0 24px;">
+            <h3 style="font-size: 2rem; margin-bottom: 20px; font-weight: 700;">Ready to Transform Your Home?</h3>
+            <p style="color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 30px;">Get a custom quote tailored to your home</p>
+            <a href="tel:8014274110" style="display: inline-block; background: white; color: black; padding: 20px 60px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 1.2rem;">Call (801) 427-4110</a>
+        </div>
     </main>
 
     <main id="residential-view" class="view">
         <section class="hero-section"><h1>Home Lighting.</h1></section>
+        
+        <!-- RESIDENTIAL STATS -->
+        <section style="max-width: 1100px; margin: 60px auto; padding: 0 24px;">
+            <h2 style="text-align: center; font-size: 2.5rem; font-weight: 700; margin-bottom: 50px;">Residential System Specs</h2>
+            <div class="stat-grid" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px;">
+                <div class="stat-card" style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 30px; padding: 40px 20px; text-align: center; backdrop-filter: blur(10px);">
+                    <div style="font-size: 3.5rem; font-weight: 900; color: var(--accent-yellow); line-height: 1; margin-bottom: 10px;">50K</div>
+                    <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 8px;">Hours</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary);">Bulb Life</p>
+                </div>
+                <div class="stat-card" style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 30px; padding: 40px 20px; text-align: center; backdrop-filter: blur(10px);">
+                    <div style="font-size: 3.5rem; font-weight: 900; color: var(--accent-blue); line-height: 1; margin-bottom: 10px;">16M</div>
+                    <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 8px;">Colors</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary);">Available</p>
+                </div>
+                <div class="stat-card" style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 30px; padding: 40px 20px; text-align: center; backdrop-filter: blur(10px);">
+                    <div style="font-size: 3.5rem; font-weight: 900; color: var(--accent-green); line-height: 1; margin-bottom: 10px;">0</div>
+                    <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 8px;">Minutes</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary);">On Your Roof</p>
+                </div>
+                <div class="stat-card" style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 30px; padding: 40px 20px; text-align: center; backdrop-filter: blur(10px);">
+                    <div style="font-size: 3.5rem; font-weight: 900; color: var(--accent-purple); line-height: 1; margin-bottom: 10px;">20+</div>
+                    <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 8px;">Years</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary);">Expected Use</p>
+                </div>
+                <div class="stat-card" style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 30px; padding: 40px 20px; text-align: center; backdrop-filter: blur(10px);">
+                    <div style="font-size: 3.5rem; font-weight: 900; color: var(--accent-orange); line-height: 1; margin-bottom: 10px;">365</div>
+                    <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 8px;">Days</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary);">Year-Round</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA AFTER RESIDENTIAL STATS -->
+        <div style="text-align: center; margin: 60px auto; max-width: 600px; padding: 0 24px;">
+            <a href="tel:8014274110" style="display: inline-block; background: var(--accent-blue); color: white; padding: 18px 50px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 1.1rem;">Get Started Today</a>
+        </div>
+        
         <div class="grid-container">
             <div class="selection-card">
                 <h3>Permanent</h3>
                 <ul class="check-list" style="text-align: left; max-width: 250px; margin: 20px auto;">
-                    <li>✓ App-controlled colors</li>
+                    <li>✓ App controlled colors</li>
                     <li>✓ Invisible during day</li>
                     <li>✓ Weather-proof LEDs</li>
                 </ul>
@@ -321,21 +591,358 @@
 
     <main id="commercial-view" class="view">
         <section class="hero-section"><h1>Business Landmark.</h1></section>
+        
+        <!-- COMMERCIAL STATS -->
+        <section style="max-width: 1100px; margin: 60px auto; padding: 0 24px;">
+            <h2 style="text-align: center; font-size: 2.5rem; font-weight: 700; margin-bottom: 50px;">Commercial System Specs</h2>
+            <div class="stat-grid" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px;">
+                <div class="stat-card" style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 30px; padding: 40px 20px; text-align: center; backdrop-filter: blur(10px);">
+                    <div style="font-size: 3.5rem; font-weight: 900; color: var(--accent-yellow); line-height: 1; margin-bottom: 10px;">100K</div>
+                    <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 8px;">Hours</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary);">Commercial Life</p>
+                </div>
+                <div class="stat-card" style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 30px; padding: 40px 20px; text-align: center; backdrop-filter: blur(10px);">
+                    <div style="font-size: 3.5rem; font-weight: 900; color: var(--accent-blue); line-height: 1; margin-bottom: 10px;">4B+</div>
+                    <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 8px;">Colors</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary);">Available</p>
+                </div>
+                <div class="stat-card" style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 30px; padding: 40px 20px; text-align: center; backdrop-filter: blur(10px);">
+                    <div style="font-size: 3.5rem; font-weight: 900; color: var(--accent-green); line-height: 1; margin-bottom: 10px;">5x</div>
+                    <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 8px;">Brighter</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary);">Than Competition</p>
+                </div>
+                <div class="stat-card" style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 30px; padding: 40px 20px; text-align: center; backdrop-filter: blur(10px);">
+                    <div style="font-size: 3.5rem; font-weight: 900; color: var(--accent-purple); line-height: 1; margin-bottom: 10px;">100%</div>
+                    <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 8px;">Brand</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary);">Color Match</p>
+                </div>
+                <div class="stat-card" style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 30px; padding: 40px 20px; text-align: center; backdrop-filter: blur(10px);">
+                    <div style="font-size: 3.5rem; font-weight: 900; color: var(--accent-orange); line-height: 1; margin-bottom: 10px;">More</div>
+                    <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 8px;">Customers</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary);">Period</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA AFTER COMMERCIAL STATS -->
+        <div style="text-align: center; margin: 60px auto; max-width: 700px; padding: 0 24px;">
+            <h3 style="font-size: 1.8rem; margin-bottom: 15px; font-weight: 700;">Stand Out From Your Competition</h3>
+            <p style="color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 25px;">Let's discuss how permanent lighting can elevate your business</p>
+            <a href="tel:8014274110" style="display: inline-block; background: white; color: black; padding: 18px 50px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 1.1rem;">Schedule Consultation</a>
+        </div>
+        
         <div style="max-width: 800px; margin: 0 auto 60px; text-align: center; padding: 60px; background: var(--bg-card); border-radius: 48px; border: 1px solid var(--glass-border);">
             <i data-lucide="cookie" style="color: #f472b6; margin-bottom: 25px;" size="64"></i>
-            <h3>Crumbl Cookies</h3>
-            <p>Exact brand-color matching storefronts for professional presence.</p>
+            </h3>
+            <p>Exact brand color matching storefronts for professional presence.</p>
         </div>
         <div class="types-grid">
             <div class="type-card"><h4>Restaurants</h4></div><div class="type-card"><h4>Car Washes</h4></div><div class="type-card"><h4>Retail</h4></div><div class="type-card"><h4>Gyms</h4></div><div class="type-card"><h4>Coffee</h4></div><div class="type-card"><h4>Office</h4></div><div class="type-card"><h4>Hotels</h4></div><div class="type-card"><h4>Corporate</h4></div>
         </div>
     </main>
 
+    <main id="story-view" class="view">
+        <section class="hero-section">
+            <h1>Our Story.</h1>
+            <p style="font-size: 1.3rem; color: var(--text-secondary); max-width: 700px; margin: 20px auto;">The journey that led us to bring permanent lighting solutions to your neighborhood.</p>
+        </section>
+
+        <!-- Authorized Dealer Badge -->
+        <div style="text-align: center; margin: 40px auto 60px;">
+            <img src="Everlights.png" alt="EverLights Authorized Dealer" style="height: 300px; filter: brightness(0) invert(1); margin-bottom: 15px;">
+            <p style="color: var(--accent-yellow); font-size: 1.1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;"></p>
+        </div>
+
+        <section class="story-section" style="margin-top: 0;">
+            <div class="story-grid">
+                <div class="story-card">
+                    <h3>The Problem We Solve</h3>
+                    <p>Many homeowners struggle to decorate safely and efficiently for the holidays. Climbing ladders, untangling lights, and dealing with weather damage year after year is frustrating and time consuming.</p>
+                </div>
+                <div class="story-card">
+                    <h3>Our Approach</h3>
+                    <p>We provide permanent, smart, energy efficient lighting installed by trained experts. Our EverLights systems are custom color matched to your home and controlled from your smartphone.</p>
+                </div>
+                <div class="story-card">
+                    <h3>Our Mission</h3>
+                    <p>Our goal is to make every home shine while offering stress free service. We believe your home deserves to look its best year round, without the hassle of seasonal decorating.</p>
+                </div>
+                <div class="story-card">
+                    <h3>Get Started Today</h3>
+                    <p>Contact us today for a free consultation! We'll design a custom lighting solution that fits your home perfectly and brings your vision to life.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-section reveal" style="margin-top: 60px;">
+            <h2>Who We Are</h2>
+            <p>Let It Glow is your local EverLights dealer, bringing the smartest and brightest permanent home lighting solutions to your neighborhood. We make homes shine with beautiful, hassle-free lighting that lasts all year.</p>
+            <p>Our mission is to give every home a beautiful glow while providing expert installation and friendly service. Whether you want to enhance curb appeal, celebrate the holidays, or brighten your home year-round, Let It Glow is here to help.</p>
+        </section>
+    </main>
+
+    <main id="app-view" class="view">
+        <section class="hero-section">
+            <h1>The App.</h1>
+            <p style="font-size: 1.3rem; color: var(--text-secondary); max-width: 700px; margin: 20px auto;">Complete control of your lighting system right from your phone.</p>
+        </section>
+
+        <section style="max-width: 1100px; margin: 0 auto 80px; padding: 0 24px;">
+            
+            <!-- App Hero -->
+            <div style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 50px; padding: 80px 60px; backdrop-filter: blur(10px); display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-bottom: 80px;">
+                <div>
+                    <h2 style="font-size: 3rem; font-weight: 700; margin-bottom: 25px;">Command Center in Your Pocket</h2>
+                    <p style="color: var(--text-secondary); font-size: 1.2rem; line-height: 1.7; margin-bottom: 30px;">The EverLights+ app puts 16 million colors and endless lighting patterns at your fingertips. Create custom scenes, set schedules, and control every bulb all from the ground.</p>
+                    <div style="display: flex; gap: 15px; margin-bottom: 30px;">
+                        <a href="https://apps.apple.com/us/app/everlights/id6470312106" target="_blank" style="display: inline-block;">
+                            <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us" alt="Download on App Store" style="height: 50px;">
+                        </a>
+                        <a href="https://play.google.com/store/apps/details?id=com.AxisInnovations.Everlights" target="_blank" style="display: inline-block;">
+                            <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" style="height: 50px;">
+                        </a>
+                    </div>
+                </div>
+                <div style="display: flex; justify-content: center;">
+                    <div style="width: 280px; height: 560px; background: #111; border: 10px solid #222; border-radius: 50px; position: relative; padding: 25px; display: flex; flex-direction: column; gap: 18px; box-shadow: 0 20px 60px rgba(0,0,0,0.5);">
+                        <div style="width: 80px; height: 5px; background: #333; border-radius: 10px; align-self: center;"></div>
+                        <div style="width: 100%; aspect-ratio: 1/1; border-radius: 50%; background: conic-gradient(red, yellow, lime, aqua, blue, magenta, red); border: 12px solid rgba(255,255,255,0.1);"></div>
+                        <div style="background: rgba(255,255,255,0.05); height: 48px; border-radius: 14px; display: flex; align-items: center; padding: 0 18px; font-size: 0.9rem; color: var(--accent-blue);">Schedule: 8:00 PM</div>
+                        <div style="background: rgba(255,255,255,0.05); height: 48px; border-radius: 14px; display: flex; align-items: center; padding: 0 18px; font-size: 0.9rem; color: var(--accent-green);">Pattern: Warm Glow</div>
+                        <div style="margin-top: auto; background: var(--accent-blue); height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-weight: 800; color: black; font-size: 1rem;">APPLY CHANGES</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features Grid -->
+            <h2 style="text-align: center; font-size: 2.5rem; font-weight: 700; margin-bottom: 50px;">Everything You Need</h2>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-bottom: 80px;">
+                <div style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 30px; padding: 40px; text-align: center; backdrop-filter: blur(10px);">
+                    <i data-lucide="palette" style="color: var(--accent-yellow); margin-bottom: 20px;" size="56"></i>
+                    <h3 style="font-size: 1.4rem; margin-bottom: 15px;">16 Million Colors</h3>
+                    <p style="color: var(--text-secondary); line-height: 1.7;">Create any color imaginable. Match your team colors, holidays, or create custom scenes for any occasion.</p>
+                </div>
+                <div style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 30px; padding: 40px; text-align: center; backdrop-filter: blur(10px);">
+                    <i data-lucide="calendar-check" style="color: var(--accent-blue); margin-bottom: 20px;" size="56"></i>
+                    <h3 style="font-size: 1.4rem; margin-bottom: 15px;">Smart Scheduling</h3>
+                    <p style="color: var(--text-secondary); line-height: 1.7;">Set it and forget it. Schedule your lights to turn on/off automatically for any day and time.</p>
+                </div>
+                <div style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 30px; padding: 40px; text-align: center; backdrop-filter: blur(10px);">
+                    <i data-lucide="zap" style="color: var(--accent-purple); margin-bottom: 20px;" size="56"></i>
+                    <h3 style="font-size: 1.4rem; margin-bottom: 15px;">Dynamic Patterns</h3>
+                    <p style="color: var(--text-secondary); line-height: 1.7;">Choose from hundreds of pre built patterns or design your own unique animations and effects.</p>
+                </div>
+                <div style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 30px; padding: 40px; text-align: center; backdrop-filter: blur(10px);">
+                    <i data-lucide="sliders-horizontal" style="color: var(--accent-green); margin-bottom: 20px;" size="56"></i>
+                    <h3 style="font-size: 1.4rem; margin-bottom: 15px;">Zone Control</h3>
+                    <p style="color: var(--text-secondary); line-height: 1.7;">Control different sections of your home independently. Front porch, garage, and roofline all separate.</p>
+                </div>
+                <div style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 30px; padding: 40px; text-align: center; backdrop-filter: blur(10px);">
+                    <i data-lucide="sun" style="color: var(--accent-orange); margin-bottom: 20px;" size="56"></i>
+                    <h3 style="font-size: 1.4rem; margin-bottom: 15px;">Brightness Control</h3>
+                    <p style="color: var(--text-secondary); line-height: 1.7;">Dim or brighten to perfection. Use as subtle accent lighting or bold statement pieces.</p>
+                </div>
+                <div style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 30px; padding: 40px; text-align: center; backdrop-filter: blur(10px);">
+                    <i data-lucide="home" style="color: var(--accent-blue); margin-bottom: 20px;" size="56"></i>
+                    <h3 style="font-size: 1.4rem; margin-bottom: 15px;">Smart Home Ready</h3>
+                    <p style="color: var(--text-secondary); line-height: 1.7;">Works with Amazon Alexa and Google Home. Control your lights with voice commands.</p>
+                </div>
+            </div>
+
+            <!-- Holiday Presets -->
+            <div style="background: linear-gradient(135deg, rgba(255,220,0,0.15), rgba(59,130,246,0.15)); border: 1px solid var(--glass-border); border-radius: 50px; padding: 60px; text-align: center; backdrop-filter: blur(10px);">
+                <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 25px;">One Tap for Every Holiday</h2>
+                <p style="color: var(--text-secondary); font-size: 1.2rem; margin-bottom: 40px; max-width: 700px; margin-left: auto; margin-right: auto;">Pre programmed presets make it effortless to celebrate any occasion. No climbing ladders, no tangled cords just tap and glow.</p>
+                <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                    <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 15px 30px; border-radius: 25px; font-weight: 600;">🎄 Christmas</div>
+                    <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 15px 30px; border-radius: 25px; font-weight: 600;">🎃 Halloween</div>
+                    <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 15px 30px; border-radius: 25px; font-weight: 600;">🇺🇸 Independence Day</div>
+                    <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 15px 30px; border-radius: 25px; font-weight: 600;">💚 St. Patrick's Day</div>
+                    <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 15px 30px; border-radius: 25px; font-weight: 600;">💝 Valentine's Day</div>
+                    <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 15px 30px; border-radius: 25px; font-weight: 600;">🎆 New Year's</div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <main id="warranty-view" class="view">
+        <section class="hero-section">
+            <h1>Warranty.</h1>
+            <p style="font-size: 1.3rem; color: var(--text-secondary); max-width: 700px; margin: 20px auto;">Peace of mind protection for your investment.</p>
+        </section>
+
+        <section style="max-width: 900px; margin: 0 auto 80px; padding: 0 24px;">
+            <div style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 50px; padding: 60px; backdrop-filter: blur(10px);">
+                <div style="text-align: center; margin-bottom: 50px;">
+                    <div style="display: inline-flex; align-items: center; gap: 15px; background: rgba(255,220,0,0.15); border: 2px solid var(--accent-yellow); padding: 20px 40px; border-radius: 50px; margin-bottom: 30px;">
+                        <span style="font-size: 3rem; font-weight: 900; color: var(--accent-yellow);">5</span>
+                        <span style="font-size: 1.3rem; font-weight: 700;">Year Product Warranty</span>
+                    </div>
+                    <div style="display: inline-flex; align-items: center; gap: 15px; background: rgba(59,130,246,0.15); border: 2px solid var(--accent-blue); padding: 20px 40px; border-radius: 50px;">
+                        <span style="font-size: 3rem; font-weight: 900; color: var(--accent-blue);">2</span>
+                        <span style="font-size: 1.3rem; font-weight: 700;">Year Labor Guarantee</span>
+                    </div>
+                </div>
+                
+                <h3 style="font-size: 1.8rem; margin-bottom: 20px; color: var(--accent-yellow);">What's Covered</h3>
+                <ul style="list-style: none; margin-bottom: 40px;">
+                    <li style="margin-bottom: 15px; display: flex; align-items: start; gap: 12px; font-size: 1.1rem;"><i data-lucide="check-circle" style="color: var(--accent-green); margin-top: 3px; flex-shrink: 0;" size="22"></i><span>LED bulbs and lighting components</span></li>
+                    <li style="margin-bottom: 15px; display: flex; align-items: start; gap: 12px; font-size: 1.1rem;"><i data-lucide="check-circle" style="color: var(--accent-green); margin-top: 3px; flex-shrink: 0;" size="22"></i><span>Track and mounting hardware</span></li>
+                    <li style="margin-bottom: 15px; display: flex; align-items: start; gap: 12px; font-size: 1.1rem;"><i data-lucide="check-circle" style="color: var(--accent-green); margin-top: 3px; flex-shrink: 0;" size="22"></i><span>Control systems and power supplies</span></li>
+                    <li style="margin-bottom: 15px; display: flex; align-items: start; gap: 12px; font-size: 1.1rem;"><i data-lucide="check-circle" style="color: var(--accent-green); margin-top: 3px; flex-shrink: 0;" size="22"></i><span>Workmanship and installation quality</span></li>
+                </ul>
+
+                <h3 style="font-size: 1.8rem; margin-bottom: 20px; color: var(--accent-yellow);">Our Commitment</h3>
+                <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.8; margin-bottom: 20px;">If anything goes wrong with your EverLights system within the warranty period, we'll make it right. No hassle, no runaround. Your satisfaction and your home's beauty are our top priorities.</p>
+                <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.8;">Have questions about warranty coverage? Give us a call at <a href="tel:8014274110" style="color: var(--accent-yellow); text-decoration: none; font-weight: 700;">(801) 427-4110</a></p>
+            </div>
+        </section>
+    </main>
+
+    <main id="faq-view" class="view">
+        <section class="hero-section">
+            <h1>FAQs.</h1>
+            <p style="font-size: 1.3rem; color: var(--text-secondary); max-width: 700px; margin: 20px auto;">Everything you need to know about permanent lighting.</p>
+        </section>
+
+        <section class="faq-section" style="max-width: 900px; margin: 0 auto 100px; padding: 0 24px;">
+            
+            <h3 style="font-size: 2rem; margin-bottom: 30px; color: var(--accent-yellow);">Product & Installation</h3>
+            
+            <div class="faq-item">
+                <h4>How long do the lights last?</h4>
+                <p>Residential systems are rated for 50,000 hours over 20 years of nightly use. Commercial systems last even longer at 100,000 hours. These aren't your typical holiday lights that burn out after one season.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>Are the lights visible during the day?</h4>
+                <p>Barely! The EverLights tracks are custom color matched to your trim, and the low profile lenses make them virtually invisible during daylight hours. Your home looks clean and elegant year round.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>How long does installation take?</h4>
+                <p>Most residential installations are completed in 1-2 days depending on the size of your home. Commercial projects vary based on building size. We'll give you an exact timeline during your free consultation.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>Will you damage my roof or gutters?</h4>
+                <p>No. Our trained professionals use specialized mounting techniques that protect your home. We never drill into shingles or compromise your roof's integrity.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>Can I install these myself?</h4>
+                <p>While EverLights can be purchased for DIY installation, we strongly recommend professional installation to ensure proper color matching, clean wire management, and warranty coverage. Plus, you'll never have to climb on your roof!</p>
+            </div>
+
+            <h3 style="font-size: 2rem; margin: 60px 0 30px; color: var(--accent-yellow);">Smart Features & Control</h3>
+
+            <div class="faq-item">
+                <h4>Is it smart home compatible?</h4>
+                <p>Yes! EverLights integrates with Amazon Alexa and Google Home. Control your lights with voice commands or through the smartphone app.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>How many colors can I choose from?</h4>
+                <p>The system offers 16 million color combinations with up to 250 colors per sequence. You can create custom patterns, use holiday presets, or design your own unique displays.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>Can I schedule the lights to turn on automatically?</h4>
+                <p>Absolutely. The smartphone app includes an integrated calendar where you can set daily schedules, timers, and customize which days your lights display. Set it once and forget it!</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>Do the lights work during power outages?</h4>
+                <p>The lights require electricity to operate, so they won't function during a power outage. However, your programmed schedules and patterns are saved and will resume automatically when power is restored.</p>
+            </div>
+
+            <h3 style="font-size: 2rem; margin: 60px 0 30px; color: var(--accent-yellow);">Warranty & Maintenance</h3>
+
+            <div class="faq-item">
+                <h4>What is the warranty?</h4>
+                <p>EverLights come with a 5 year product warranty covering all LED bulbs, tracks, and components. Let It Glow provides a 2 year labor guarantee on our installation workmanship.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>What if a bulb burns out?</h4>
+                <p>Individual LED bulbs are replaceable and covered under warranty. If you experience any issues, just give us a call and we'll take care of it.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>Do the lights require maintenance?</h4>
+                <p>Minimal maintenance required! An occasional wipe-down to remove dust or debris is all you need. No more wrestling with tangled cords or replacing burnt out bulbs every year.</p>
+            </div>
+
+            <h3 style="font-size: 2rem; margin: 60px 0 30px; color: var(--accent-yellow);">Pricing & Process</h3>
+
+            <div class="faq-item">
+                <h4>How much does it cost?</h4>
+                <p>Every home is different, so pricing depends on the size of your roofline, design complexity, and installation requirements. We offer free consultations where we'll provide a detailed custom quote with no obligation.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>Do you offer financing?</h4>
+                <p>We're currently working on financing options to make permanent lighting more accessible. Contact us for current payment options and future financing availability.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>What areas do you serve?</h4>
+                <p>We serve the entire Wasatch Front and surrounding communities within a 100 mile radius of Orem, Utah. Not sure if we cover your area? Give us a call!</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>How do I get started?</h4>
+                <p>Simple! Call us at <a href="tel:8014274110" style="color: var(--accent-yellow); text-decoration: none; font-weight: 700;">(801) 427-4110</a> or click the "Free Quote" button to schedule your free consultation. We'll visit your home, discuss your vision, and provide a custom design and quote.</p>
+            </div>
+
+            <div style="margin-top: 80px; padding: 50px; background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 40px; text-align: center;">
+                <h3 style="font-size: 1.8rem; margin-bottom: 20px;">Still Have Questions?</h3>
+                <p style="color: var(--text-secondary); font-size: 1.15rem; margin-bottom: 30px;">We're here to help! Give us a call and we'll answer any questions you have.</p>
+                <a href="tel:8014274110" style="display: inline-block; background: white; color: black; padding: 18px 50px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 1.1rem;">Call (801) 427-4110</a>
+            </div>
+
+        </section>
+    </main>
+
     <footer>
+    <!-- TRUST BADGES SECTION -->
+    <div style="max-width: 1100px; margin: 0 auto 80px; padding: 0 24px;">
+        <div style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 50px; padding: 60px 40px; backdrop-filter: blur(10px);">
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; align-items: center; text-align: center;">
+                
+                <!-- EverLights Authorized Dealer -->
+                <div>
+                    <img src="Everlights.png" alt="EverLights Authorized Dealer" style="height: 300px; margin-bottom: 15px; filter: brightness(0) invert(1);">
+                    <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 5px;"></h4>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;"></p>
+                </div>
+
+                <!-- 20 Years Experience -->
+                <div>
+                    <div style="width: 80px; height: 80px; background: rgba(255,220,0,0.15); border: 2px solid var(--accent-yellow); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-size: 2rem; font-weight: 900; color: var(--accent-yellow);">20</div>
+                    <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 5px;">Years Experience</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">Holiday Lighting Experts</p>
+                </div>
+
+                <!-- Licensed & Insured -->
+                <div>
+                    <div style="width: 80px; height: 80px; background: rgba(59,130,246,0.15); border: 2px solid var(--accent-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px;">
+                        <i data-lucide="shield-check" style="color: var(--accent-blue);" size="40"></i>
+                    </div>
+                    <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 5px;">Licensed & Insured</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">Professional & Protected</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
     <div class="contact-card reveal">
         <h2>Ready to Glow?</h2>
         <a href="tel:8014274110" class="footer-cta">Get a Free Quote</a>
         <p style="margin-top: 40px; color: var(--text-secondary); font-weight: 600; font-size: 1.3rem; letter-spacing: 0.1em;">(801) 427-4110</p>
+        <p style="margin-top: 30px; color: var(--text-secondary); font-weight: 500; font-size: 1.1rem;">Serving the Wasatch Front<br><span style="font-size: 0.95rem; color: #666;">Based in Orem, Utah</span></p>
     </div>
 </footer>
     <script>
