@@ -245,180 +245,190 @@
 }
         
         @media (max-width: 768px) { 
+            /* FORCE MOBILE LAYOUT */
+            * { max-width: 100vw; }
+            
             /* Header Mobile */
-            header { height: 80px; }
-            .nav-container { padding: 0 20px; }
+            header { height: 80px !important; }
+            .nav-container { padding: 0 20px !important; }
             .logo-group img { height: 120px !important; }
             header .nav-container > div:last-child { gap: 10px !important; }
-            header .nav-container > div:last-child a:not(.cta-button) { display: none; }
-            .cta-button { padding: 10px 20px; font-size: 0.85rem; }
+            header .nav-container > div:last-child a:not(.cta-button) { display: none !important; }
+            .cta-button { padding: 10px 20px !important; font-size: 0.85rem !important; }
             
             /* Hero & Typography */
             .hero-section { 
-                min-height: 50vh; 
-                padding: 120px 20px 40px; 
+                min-height: 50vh !important; 
+                padding: 120px 20px 40px !important; 
             }
             h1 { font-size: clamp(2.5rem, 12vw, 4rem) !important; }
             .tagline { font-size: 1.1rem !important; }
             h2 { font-size: 2rem !important; }
             h3 { font-size: 1.3rem !important; }
+            p { font-size: 1rem !important; }
             
-            /* Grids - Stack Everything */
-            .grid-container { 
-                grid-template-columns: 1fr; 
-                gap: 20px; 
-                padding: 0 20px;
-                margin-bottom: 60px;
-            }
-            
-            .selection-card { 
-                padding: 40px 30px; 
-                border-radius: 30px;
-            }
-            
-            /* Feature Splits */
-            .feature-split { 
-                grid-template-columns: 1fr !important; 
-                gap: 40px;
-                margin: 60px auto;
-                padding: 0 20px;
-            }
-            
-            .feature-img { border-radius: 30px; }
-            
-            /* How It Works - Stack 3 Cards */
-            section > div[style*="repeat(3, 1fr)"] {
+            /* ALL GRIDS - FORCE SINGLE COLUMN */
+            .grid-container,
+            .feature-split,
+            .app-container,
+            .step-grid,
+            .types-grid,
+            .story-grid,
+            section > div[style*="grid"],
+            div[style*="grid-template-columns"] { 
                 grid-template-columns: 1fr !important;
                 gap: 20px !important;
+                padding: 0 20px !important;
             }
             
-            /* Year-Round Use - Stack 4 Cards */
-            section > div[style*="repeat(4, 1fr)"] {
-                grid-template-columns: 1fr !important;
-                gap: 20px !important;
+            /* Specific overrides for inline styles */
+            section[style*="max-width: 1100px"] {
+                padding: 0 20px !important;
+                margin: 60px auto !important;
             }
             
-            /* App Container */
-            .app-container { 
+            div[style*="repeat(3, 1fr)"],
+            div[style*="repeat(4, 1fr)"],
+            div[style*="repeat(5, 1fr)"] {
                 grid-template-columns: 1fr !important;
-                padding: 40px 30px;
-                gap: 40px;
-                border-radius: 40px;
+            }
+            
+            /* Types grid exception - 2 columns */
+            .types-grid { 
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+            
+            /* Cards & Containers */
+            .selection-card,
+            .story-card,
+            .faq-item,
+            div[style*="border-radius"] { 
+                padding: 30px 25px !important;
+                border-radius: 25px !important;
+            }
+            
+            /* App Container Special */
+            .app-container,
+            #app-view section > div[style*="grid"] {
+                grid-template-columns: 1fr !important;
+                padding: 40px 25px !important;
+                gap: 30px !important;
+            }
+            
+            /* Phone Mockup */
+            .feature-img > div,
+            #app-view .feature-img > div {
+                width: 220px !important;
+                height: 440px !important;
+                margin: 0 auto !important;
             }
             
             /* Gallery */
             .gallery-item { 
-                flex: 0 0 280px; 
-                border-radius: 30px;
+                flex: 0 0 280px !important; 
+                border-radius: 25px !important;
             }
             
             /* Comparison Slider */
             .comparison-container { 
-                aspect-ratio: 4/5;
-                border-radius: 30px;
+                aspect-ratio: 4/5 !important;
+                border-radius: 25px !important;
             }
-            .img-before img { width: 100vw; }
-            
-            /* Testimonials - Stack 3 Cards */
-            section > div > div[style*="repeat(3, 1fr)"] {
-                grid-template-columns: 1fr !important;
-                gap: 20px !important;
-            }
-            
-            /* Get Started - Stack 4 Cards */
-            .step-grid { 
-                grid-template-columns: 1fr !important;
-                gap: 20px;
-                padding: 0 20px;
-            }
+            .img-before img { width: 100vw !important; }
             
             /* Stats Grids */
             .stat-grid { 
                 grid-template-columns: 1fr !important; 
-                gap: 15px !important;
             }
             
-            /* Types Grid */
-            .types-grid { 
-                grid-template-columns: repeat(2, 1fr) !important;
-                gap: 15px;
+            .stat-card {
+                padding: 30px 20px !important;
             }
             
-            /* Story Grid */
-            .story-grid { grid-template-columns: 1fr !important; }
-            .story-card { padding: 35px 30px; border-radius: 30px; }
+            .stat-card > div { 
+                font-size: 2.5rem !important; 
+            }
             
             /* About Section */
-            .about-section { 
-                padding: 50px 30px;
-                border-radius: 40px;
-                margin: 80px auto;
+            .about-section,
+            section[style*="background: var(--bg-card)"] { 
+                padding: 40px 25px !important;
+                border-radius: 30px !important;
+                margin: 60px auto !important;
             }
-            .about-section h2 { font-size: 2rem !important; }
-            .about-section p { font-size: 1.1rem !important; }
             
             /* Footer */
-            footer { padding: 80px 20px; }
+            footer { 
+                padding: 60px 20px !important; 
+            }
+            
             .contact-card { 
-                padding: 60px 30px;
-                border-radius: 40px;
+                padding: 50px 25px !important;
+                border-radius: 35px !important;
             }
+            
             .contact-card h2 { 
-                font-size: clamp(3rem, 15vw, 5rem) !important;
-                margin-bottom: 30px;
+                font-size: clamp(2.5rem, 12vw, 4.5rem) !important;
             }
+            
             .footer-cta { 
-                padding: 20px 40px;
-                font-size: 1.3rem;
-            }
-            footer > div:first-child > div { 
-                grid-template-columns: 1fr !important; 
-                gap: 30px !important;
+                padding: 18px 35px !important;
+                font-size: 1.2rem !important;
             }
             
             /* Trust Badges */
-            footer > div:first-child > div > div > img { 
-                height: 180px !important;
-            }
-            
-            /* FAQ Section */
-            .faq-section { padding: 0 20px; }
-            .faq-item { 
-                padding: 25px; 
-                border-radius: 20px;
-            }
-            .faq-item h4 { font-size: 1.1rem !important; }
-            
-            /* App View */
-            #app-view section > div:first-child {
+            footer div[style*="repeat(3, 1fr)"] {
                 grid-template-columns: 1fr !important;
-                padding: 50px 30px !important;
-                gap: 40px !important;
             }
             
-            #app-view .feature-img > div {
-                width: 240px !important;
-                height: 480px !important;
+            footer img[style*="height: 300px"] { 
+                height: 160px !important;
             }
             
-            /* Warranty View */
-            #warranty-view section > div {
-                padding: 40px 30px !important;
-                border-radius: 40px !important;
+            /* FAQ */
+            .faq-section { 
+                padding: 0 20px !important; 
             }
             
-            /* General Spacing */
-            section { margin: 60px auto !important; }
+            .faq-item h4 { 
+                font-size: 1.05rem !important; 
+            }
             
-            /* Stat Cards */
-            .stat-card > div { font-size: 2.5rem !important; }
-            .stat-card h4 { font-size: 0.95rem !important; }
-            .stat-card p { font-size: 0.8rem !important; }
+            /* CTA Buttons */
+            a[style*="padding"][style*="inline-block"] {
+                padding: 16px 35px !important;
+                font-size: 1.05rem !important;
+                display: block !important;
+                max-width: 300px !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+            }
             
-            /* CTA Sections */
-            div[style*="text-align: center"] a[style*="inline-block"] {
-                padding: 18px 40px !important;
-                font-size: 1.1rem !important;
+            /* Text Containers */
+            div[style*="max-width: 600px"],
+            div[style*="max-width: 700px"],
+            div[style*="max-width: 800px"],
+            p[style*="max-width"] {
+                max-width: 100% !important;
+                padding: 0 20px !important;
+            }
+            
+            /* Warranty Badges */
+            div[style*="inline-flex"][style*="padding: 20px 40px"] {
+                padding: 15px 25px !important;
+                font-size: 0.9rem !important;
+                flex-wrap: wrap !important;
+                justify-content: center !important;
+            }
+            
+            div[style*="inline-flex"] span[style*="font-size: 3rem"] {
+                font-size: 2rem !important;
+            }
+            
+            /* Holiday Presets */
+            div[style*="flex-wrap: wrap"] > div {
+                font-size: 0.85rem !important;
+                padding: 12px 20px !important;
             }
         }
     </style>
