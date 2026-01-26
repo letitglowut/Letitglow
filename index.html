@@ -245,14 +245,181 @@
 }
         
         @media (max-width: 768px) { 
-            .grid-container, .feature-split, .app-container, .step-grid, .types-grid { grid-template-columns: 1fr; }
-            .types-grid { grid-template-columns: repeat(2, 1fr); }
-            .img-before img { width: 100vw; }
-            .story-grid { grid-template-columns: 1fr; }
-            .stat-grid { grid-template-columns: repeat(2, 1fr) !important; }
-            header .nav-container > div:last-child { gap: 15px !important; }
+            /* Header Mobile */
+            header { height: 80px; }
+            .nav-container { padding: 0 20px; }
+            .logo-group img { height: 120px !important; }
+            header .nav-container > div:last-child { gap: 10px !important; }
             header .nav-container > div:last-child a:not(.cta-button) { display: none; }
-            footer > div:first-child > div { grid-template-columns: 1fr !important; }
+            .cta-button { padding: 10px 20px; font-size: 0.85rem; }
+            
+            /* Hero & Typography */
+            .hero-section { 
+                min-height: 50vh; 
+                padding: 120px 20px 40px; 
+            }
+            h1 { font-size: clamp(2.5rem, 12vw, 4rem) !important; }
+            .tagline { font-size: 1.1rem !important; }
+            h2 { font-size: 2rem !important; }
+            h3 { font-size: 1.3rem !important; }
+            
+            /* Grids - Stack Everything */
+            .grid-container { 
+                grid-template-columns: 1fr; 
+                gap: 20px; 
+                padding: 0 20px;
+                margin-bottom: 60px;
+            }
+            
+            .selection-card { 
+                padding: 40px 30px; 
+                border-radius: 30px;
+            }
+            
+            /* Feature Splits */
+            .feature-split { 
+                grid-template-columns: 1fr !important; 
+                gap: 40px;
+                margin: 60px auto;
+                padding: 0 20px;
+            }
+            
+            .feature-img { border-radius: 30px; }
+            
+            /* How It Works - Stack 3 Cards */
+            section > div[style*="repeat(3, 1fr)"] {
+                grid-template-columns: 1fr !important;
+                gap: 20px !important;
+            }
+            
+            /* Year-Round Use - Stack 4 Cards */
+            section > div[style*="repeat(4, 1fr)"] {
+                grid-template-columns: 1fr !important;
+                gap: 20px !important;
+            }
+            
+            /* App Container */
+            .app-container { 
+                grid-template-columns: 1fr !important;
+                padding: 40px 30px;
+                gap: 40px;
+                border-radius: 40px;
+            }
+            
+            /* Gallery */
+            .gallery-item { 
+                flex: 0 0 280px; 
+                border-radius: 30px;
+            }
+            
+            /* Comparison Slider */
+            .comparison-container { 
+                aspect-ratio: 4/5;
+                border-radius: 30px;
+            }
+            .img-before img { width: 100vw; }
+            
+            /* Testimonials - Stack 3 Cards */
+            section > div > div[style*="repeat(3, 1fr)"] {
+                grid-template-columns: 1fr !important;
+                gap: 20px !important;
+            }
+            
+            /* Get Started - Stack 4 Cards */
+            .step-grid { 
+                grid-template-columns: 1fr !important;
+                gap: 20px;
+                padding: 0 20px;
+            }
+            
+            /* Stats Grids */
+            .stat-grid { 
+                grid-template-columns: 1fr !important; 
+                gap: 15px !important;
+            }
+            
+            /* Types Grid */
+            .types-grid { 
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 15px;
+            }
+            
+            /* Story Grid */
+            .story-grid { grid-template-columns: 1fr !important; }
+            .story-card { padding: 35px 30px; border-radius: 30px; }
+            
+            /* About Section */
+            .about-section { 
+                padding: 50px 30px;
+                border-radius: 40px;
+                margin: 80px auto;
+            }
+            .about-section h2 { font-size: 2rem !important; }
+            .about-section p { font-size: 1.1rem !important; }
+            
+            /* Footer */
+            footer { padding: 80px 20px; }
+            .contact-card { 
+                padding: 60px 30px;
+                border-radius: 40px;
+            }
+            .contact-card h2 { 
+                font-size: clamp(3rem, 15vw, 5rem) !important;
+                margin-bottom: 30px;
+            }
+            .footer-cta { 
+                padding: 20px 40px;
+                font-size: 1.3rem;
+            }
+            footer > div:first-child > div { 
+                grid-template-columns: 1fr !important; 
+                gap: 30px !important;
+            }
+            
+            /* Trust Badges */
+            footer > div:first-child > div > div > img { 
+                height: 180px !important;
+            }
+            
+            /* FAQ Section */
+            .faq-section { padding: 0 20px; }
+            .faq-item { 
+                padding: 25px; 
+                border-radius: 20px;
+            }
+            .faq-item h4 { font-size: 1.1rem !important; }
+            
+            /* App View */
+            #app-view section > div:first-child {
+                grid-template-columns: 1fr !important;
+                padding: 50px 30px !important;
+                gap: 40px !important;
+            }
+            
+            #app-view .feature-img > div {
+                width: 240px !important;
+                height: 480px !important;
+            }
+            
+            /* Warranty View */
+            #warranty-view section > div {
+                padding: 40px 30px !important;
+                border-radius: 40px !important;
+            }
+            
+            /* General Spacing */
+            section { margin: 60px auto !important; }
+            
+            /* Stat Cards */
+            .stat-card > div { font-size: 2.5rem !important; }
+            .stat-card h4 { font-size: 0.95rem !important; }
+            .stat-card p { font-size: 0.8rem !important; }
+            
+            /* CTA Sections */
+            div[style*="text-align: center"] a[style*="inline-block"] {
+                padding: 18px 40px !important;
+                font-size: 1.1rem !important;
+            }
         }
     </style>
 </head>
@@ -344,18 +511,18 @@
             <div class="feature-content">
                 <h2 style="font-size: 2.5rem; margin-bottom: 20px;">What's Your Time Worth?</h2>
                 <p style="color: var(--text-secondary); font-size: 1.2rem; margin-bottom: 20px;">The average homeowner spends <strong style="color: var(--accent-yellow);">7.3 hours per year</strong> putting up and taking down holiday lights that are only illuminated for 3-5 weeks.</p>
-                <p style="color: var(--text-secondary); font-size: 1.2rem; margin-bottom: 20px;">With Let It Glow's one time installation, you'll get up to <strong style="color: var(--accent-yellow);">20 years</strong> of permanent lighting that's customizable 365 days per year.</p>
+                <p style="color: var(--text-secondary); font-size: 1.2rem; margin-bottom: 20px;">With Let It Glow's one-time installation, you'll get up to <strong style="color: var(--accent-yellow);">20 years</strong> of permanent lighting that's customizable 365 days per year.</p>
                 <ul class="check-list">
-                    <li><i data-lucide="check-circle" size="18"></i> One Time Professional Install</li>
+                    <li><i data-lucide="check-circle" size="18"></i> One-Time Professional Install</li>
                     <li><i data-lucide="check-circle" size="18"></i> No More Ladder Risks</li>
                     <li><i data-lucide="check-circle" size="18"></i> Use Every Day of the Year</li>
                 </ul>
             </div>
             <div class="feature-img">
-    <video autoplay loop muted playsinline style="width: 100%; display: block; object-fit: cover;">
-        <source src="Multicolored.mp4" type="video/mp4">
-    </video>
-</div>
+                <video autoplay loop muted playsinline style="width: 100%; display: block; object-fit: cover;">
+                    <source src="Multicolored.mp4" type="video/mp4">
+                </video>
+            </div>
         </section>
 
         <section class="feature-split reveal">
@@ -365,7 +532,8 @@
                 <ul class="check-list">
                     <li><i data-lucide="check-circle" size="18"></i> Custom Color Matching</li>
                     <li><i data-lucide="check-circle" size="18"></i> Hidden Wire Management</li>
-
+                    <li><i data-lucide="check-circle" size="18"></i> Low-Profile "Cloud" Lens</li>
+                </ul>
             </div>
             <div class="feature-img"><img src="Zoom.gif"></div>
         </section>
@@ -382,7 +550,7 @@
                 <div style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 30px; padding: 40px 30px; text-align: center; backdrop-filter: blur(10px);">
                     <i data-lucide="shield-check" style="color: var(--accent-blue); margin-bottom: 20px;" size="48"></i>
                     <h3 style="font-size: 1.3rem; margin-bottom: 15px;">Stay Off The Roof</h3>
-                    <p style="color: var(--text-secondary); font-size: 0.95rem;">We handle the install, skip the dangerous ladder climbs forever</p>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;">We handle the install—skip the dangerous ladder climbs forever</p>
                 </div>
                 <div style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 30px; padding: 40px 30px; text-align: center; backdrop-filter: blur(10px);">
                     <i data-lucide="sparkles" style="color: var(--accent-purple); margin-bottom: 20px;" size="48"></i>
@@ -405,7 +573,7 @@
         <section class="app-container reveal">
             <div class="app-content">
                 <h2 style="font-size: 2.5rem; margin-bottom: 20px; font-weight: 700;">Dazzles by Night</h2>
-                <p style="color: var(--text-secondary); font-size: 1.15rem; margin-bottom: 30px;">16 million colors and thousands of patterns all from your phone.</p>
+                <p style="color: var(--text-secondary); font-size: 1.15rem; margin-bottom: 30px;">16 million colors and thousands of patterns—all from your phone.</p>
                 <ul class="app-features">
                     <li><i data-lucide="smartphone" size="22"></i><span><strong>Holiday Presets</strong> – One tap for Christmas</span></li>
                     <li><i data-lucide="palette" size="22"></i><span><strong>16 Million Colors</strong> – Match any theme</span></li>
@@ -481,7 +649,7 @@
         <!-- HOW TO GET STARTED SECTION -->
         <section class="reveal" style="max-width: 1100px; margin: 120px auto; padding: 0 24px;">
             <h2 style="text-align: center; font-size: 3rem; font-weight: 700; margin-bottom: 20px;">How to Get Started</h2>
-            <p style="text-align: center; font-size: 1.2rem; color: var(--text-secondary); max-width: 700px; margin: 0 auto 60px;">From first call to lights on here's exactly what to expect</p>
+            <p style="text-align: center; font-size: 1.2rem; color: var(--text-secondary); max-width: 700px; margin: 0 auto 60px;">From first call to lights on—here's exactly what to expect</p>
             
             <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px;">
                 <div style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 40px; padding: 50px 35px; text-align: center; backdrop-filter: blur(10px); position: relative;">
@@ -515,7 +683,7 @@
 
             <!-- Timeline Note -->
             <div style="background: rgba(255,220,0,0.1); border: 1px solid var(--accent-yellow); border-radius: 30px; padding: 30px 40px; margin-top: 50px; text-align: center;">
-                <p style="font-size: 1.1rem; color: var(--text-primary); line-height: 1.6;"><strong style="color: var(--accent-yellow);">Planning Ahead?</strong> We recommend booking 2-4 weeks in advance for holiday installations. Year round installations available with shorter lead times.</p>
+                <p style="font-size: 1.1rem; color: var(--text-primary); line-height: 1.6;"><strong style="color: var(--accent-yellow);">Planning Ahead?</strong> We recommend booking 2-4 weeks in advance for holiday installations. Year-round installations available with shorter lead times.</p>
             </div>
         </section>
 
@@ -571,7 +739,7 @@
             <div class="selection-card">
                 <h3>Permanent</h3>
                 <ul class="check-list" style="text-align: left; max-width: 250px; margin: 20px auto;">
-                    <li>✓ App controlled colors</li>
+                    <li>✓ App-controlled colors</li>
                     <li>✓ Invisible during day</li>
                     <li>✓ Weather-proof LEDs</li>
                 </ul>
@@ -606,24 +774,24 @@
                     <p style="font-size: 0.85rem; color: var(--text-secondary);">Commercial Life</p>
                 </div>
                 <div class="stat-card" style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 30px; padding: 40px 20px; text-align: center; backdrop-filter: blur(10px);">
-                    <div style="font-size: 3.5rem; font-weight: 900; color: var(--accent-blue); line-height: 1; margin-bottom: 10px;">4B+</div>
-                    <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 8px;">Colors</h4>
-                    <p style="font-size: 0.85rem; color: var(--text-secondary);">Available</p>
-                </div>
-                <div class="stat-card" style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 30px; padding: 40px 20px; text-align: center; backdrop-filter: blur(10px);">
-                    <div style="font-size: 3.5rem; font-weight: 900; color: var(--accent-green); line-height: 1; margin-bottom: 10px;">5x</div>
-                    <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 8px;">Brighter</h4>
-                    <p style="font-size: 0.85rem; color: var(--text-secondary);">Than Competition</p>
-                </div>
-                <div class="stat-card" style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 30px; padding: 40px 20px; text-align: center; backdrop-filter: blur(10px);">
-                    <div style="font-size: 3.5rem; font-weight: 900; color: var(--accent-purple); line-height: 1; margin-bottom: 10px;">100%</div>
+                    <div style="font-size: 3.5rem; font-weight: 900; color: var(--accent-blue); line-height: 1; margin-bottom: 10px;">100%</div>
                     <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 8px;">Brand</h4>
                     <p style="font-size: 0.85rem; color: var(--text-secondary);">Color Match</p>
                 </div>
                 <div class="stat-card" style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 30px; padding: 40px 20px; text-align: center; backdrop-filter: blur(10px);">
-                    <div style="font-size: 3.5rem; font-weight: 900; color: var(--accent-orange); line-height: 1; margin-bottom: 10px;">More</div>
-                    <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 8px;">Customers</h4>
-                    <p style="font-size: 0.85rem; color: var(--text-secondary);">Period</p>
+                    <div style="font-size: 3.5rem; font-weight: 900; color: var(--accent-green); line-height: 1; margin-bottom: 10px;">24/7</div>
+                    <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 8px;">Always</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary);">Illuminated</p>
+                </div>
+                <div class="stat-card" style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 30px; padding: 40px 20px; text-align: center; backdrop-filter: blur(10px);">
+                    <div style="font-size: 3.5rem; font-weight: 900; color: var(--accent-purple); line-height: 1; margin-bottom: 10px;">IP67</div>
+                    <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 8px;">Rating</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary);">Weatherproof</p>
+                </div>
+                <div class="stat-card" style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 30px; padding: 40px 20px; text-align: center; backdrop-filter: blur(10px);">
+                    <div style="font-size: 3.5rem; font-weight: 900; color: var(--accent-orange); line-height: 1; margin-bottom: 10px;">ROI</div>
+                    <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 8px;">Proven</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary);">Investment</p>
                 </div>
             </div>
         </section>
@@ -637,8 +805,8 @@
         
         <div style="max-width: 800px; margin: 0 auto 60px; text-align: center; padding: 60px; background: var(--bg-card); border-radius: 48px; border: 1px solid var(--glass-border);">
             <i data-lucide="cookie" style="color: #f472b6; margin-bottom: 25px;" size="64"></i>
-            </h3>
-            <p>Exact brand color matching storefronts for professional presence.</p>
+            <h3>Crumbl Cookies</h3>
+            <p>Exact brand-color matching storefronts for professional presence.</p>
         </div>
         <div class="types-grid">
             <div class="type-card"><h4>Restaurants</h4></div><div class="type-card"><h4>Car Washes</h4></div><div class="type-card"><h4>Retail</h4></div><div class="type-card"><h4>Gyms</h4></div><div class="type-card"><h4>Coffee</h4></div><div class="type-card"><h4>Office</h4></div><div class="type-card"><h4>Hotels</h4></div><div class="type-card"><h4>Corporate</h4></div>
@@ -661,15 +829,15 @@
             <div class="story-grid">
                 <div class="story-card">
                     <h3>The Problem We Solve</h3>
-                    <p>Many homeowners struggle to decorate safely and efficiently for the holidays. Climbing ladders, untangling lights, and dealing with weather damage year after year is frustrating and time consuming.</p>
+                    <p>Many homeowners struggle to decorate safely and efficiently for the holidays. Climbing ladders, untangling lights, and dealing with weather damage year after year is frustrating and time-consuming.</p>
                 </div>
                 <div class="story-card">
                     <h3>Our Approach</h3>
-                    <p>We provide permanent, smart, energy efficient lighting installed by trained experts. Our EverLights systems are custom color matched to your home and controlled from your smartphone.</p>
+                    <p>We provide permanent, smart, energy-efficient lighting installed by trained experts. Our EverLights systems are custom color-matched to your home and controlled from your smartphone.</p>
                 </div>
                 <div class="story-card">
                     <h3>Our Mission</h3>
-                    <p>Our goal is to make every home shine while offering stress free service. We believe your home deserves to look its best year round, without the hassle of seasonal decorating.</p>
+                    <p>Our goal is to make every home shine while offering stress-free service. We believe your home deserves to look its best year-round, without the hassle of seasonal decorating.</p>
                 </div>
                 <div class="story-card">
                     <h3>Get Started Today</h3>
@@ -697,7 +865,7 @@
             <div style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 50px; padding: 80px 60px; backdrop-filter: blur(10px); display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-bottom: 80px;">
                 <div>
                     <h2 style="font-size: 3rem; font-weight: 700; margin-bottom: 25px;">Command Center in Your Pocket</h2>
-                    <p style="color: var(--text-secondary); font-size: 1.2rem; line-height: 1.7; margin-bottom: 30px;">The EverLights+ app puts 16 million colors and endless lighting patterns at your fingertips. Create custom scenes, set schedules, and control every bulb all from the ground.</p>
+                    <p style="color: var(--text-secondary); font-size: 1.2rem; line-height: 1.7; margin-bottom: 30px;">The EverLights+ app puts 16 million colors and endless lighting patterns at your fingertips. Create custom scenes, set schedules, and control every bulb—all from the ground.</p>
                     <div style="display: flex; gap: 15px; margin-bottom: 30px;">
                         <a href="https://apps.apple.com/us/app/everlights/id6470312106" target="_blank" style="display: inline-block;">
                             <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us" alt="Download on App Store" style="height: 50px;">
@@ -734,12 +902,12 @@
                 <div style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 30px; padding: 40px; text-align: center; backdrop-filter: blur(10px);">
                     <i data-lucide="zap" style="color: var(--accent-purple); margin-bottom: 20px;" size="56"></i>
                     <h3 style="font-size: 1.4rem; margin-bottom: 15px;">Dynamic Patterns</h3>
-                    <p style="color: var(--text-secondary); line-height: 1.7;">Choose from hundreds of pre built patterns or design your own unique animations and effects.</p>
+                    <p style="color: var(--text-secondary); line-height: 1.7;">Choose from hundreds of pre-built patterns or design your own unique animations and effects.</p>
                 </div>
                 <div style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 30px; padding: 40px; text-align: center; backdrop-filter: blur(10px);">
                     <i data-lucide="sliders-horizontal" style="color: var(--accent-green); margin-bottom: 20px;" size="56"></i>
                     <h3 style="font-size: 1.4rem; margin-bottom: 15px;">Zone Control</h3>
-                    <p style="color: var(--text-secondary); line-height: 1.7;">Control different sections of your home independently. Front porch, garage, and roofline all separate.</p>
+                    <p style="color: var(--text-secondary); line-height: 1.7;">Control different sections of your home independently. Front porch, garage, and roofline—all separate.</p>
                 </div>
                 <div style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 30px; padding: 40px; text-align: center; backdrop-filter: blur(10px);">
                     <i data-lucide="sun" style="color: var(--accent-orange); margin-bottom: 20px;" size="56"></i>
@@ -756,7 +924,7 @@
             <!-- Holiday Presets -->
             <div style="background: linear-gradient(135deg, rgba(255,220,0,0.15), rgba(59,130,246,0.15)); border: 1px solid var(--glass-border); border-radius: 50px; padding: 60px; text-align: center; backdrop-filter: blur(10px);">
                 <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 25px;">One Tap for Every Holiday</h2>
-                <p style="color: var(--text-secondary); font-size: 1.2rem; margin-bottom: 40px; max-width: 700px; margin-left: auto; margin-right: auto;">Pre programmed presets make it effortless to celebrate any occasion. No climbing ladders, no tangled cords just tap and glow.</p>
+                <p style="color: var(--text-secondary); font-size: 1.2rem; margin-bottom: 40px; max-width: 700px; margin-left: auto; margin-right: auto;">Pre-programmed presets make it effortless to celebrate any occasion. No climbing ladders, no tangled cords—just tap and glow.</p>
                 <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
                     <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 15px 30px; border-radius: 25px; font-weight: 600;">🎄 Christmas</div>
                     <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 15px 30px; border-radius: 25px; font-weight: 600;">🎃 Halloween</div>
@@ -816,12 +984,12 @@
             
             <div class="faq-item">
                 <h4>How long do the lights last?</h4>
-                <p>Residential systems are rated for 50,000 hours over 20 years of nightly use. Commercial systems last even longer at 100,000 hours. These aren't your typical holiday lights that burn out after one season.</p>
+                <p>Residential systems are rated for 50,000 hours—over 20 years of nightly use. Commercial systems last even longer at 100,000 hours. These aren't your typical holiday lights that burn out after one season.</p>
             </div>
 
             <div class="faq-item">
                 <h4>Are the lights visible during the day?</h4>
-                <p>Barely! The EverLights tracks are custom color matched to your trim, and the low profile lenses make them virtually invisible during daylight hours. Your home looks clean and elegant year round.</p>
+                <p>Barely! The EverLights tracks are custom color-matched to your trim, and the low-profile "cloud" lenses make them virtually invisible during daylight hours. Your home looks clean and elegant year-round.</p>
             </div>
 
             <div class="faq-item">
@@ -842,7 +1010,7 @@
             <h3 style="font-size: 2rem; margin: 60px 0 30px; color: var(--accent-yellow);">Smart Features & Control</h3>
 
             <div class="faq-item">
-                <h4>Is it smart home compatible?</h4>
+                <h4>Is it smart-home compatible?</h4>
                 <p>Yes! EverLights integrates with Amazon Alexa and Google Home. Control your lights with voice commands or through the smartphone app.</p>
             </div>
 
@@ -865,7 +1033,7 @@
 
             <div class="faq-item">
                 <h4>What is the warranty?</h4>
-                <p>EverLights come with a 5 year product warranty covering all LED bulbs, tracks, and components. Let It Glow provides a 2 year labor guarantee on our installation workmanship.</p>
+                <p>EverLights come with a 5-year product warranty covering all LED bulbs, tracks, and components. Let It Glow provides a 2-year labor guarantee on our installation workmanship.</p>
             </div>
 
             <div class="faq-item">
@@ -875,7 +1043,7 @@
 
             <div class="faq-item">
                 <h4>Do the lights require maintenance?</h4>
-                <p>Minimal maintenance required! An occasional wipe-down to remove dust or debris is all you need. No more wrestling with tangled cords or replacing burnt out bulbs every year.</p>
+                <p>Minimal maintenance required! An occasional wipe-down to remove dust or debris is all you need. No more wrestling with tangled cords or replacing burnt-out bulbs every year.</p>
             </div>
 
             <h3 style="font-size: 2rem; margin: 60px 0 30px; color: var(--accent-yellow);">Pricing & Process</h3>
@@ -892,7 +1060,7 @@
 
             <div class="faq-item">
                 <h4>What areas do you serve?</h4>
-                <p>We serve the entire Wasatch Front and surrounding communities within a 100 mile radius of Orem, Utah. Not sure if we cover your area? Give us a call!</p>
+                <p>We serve the entire Wasatch Front and surrounding communities within a 100-mile radius of Orem, Utah. Not sure if we cover your area? Give us a call!</p>
             </div>
 
             <div class="faq-item">
