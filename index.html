@@ -484,12 +484,22 @@
                 gap: 30px !important;
             }
             
-            /* Phone Mockup */
+            /* Phone Mockup / App Images */
             .feature-img > div,
             #app-view .feature-img > div {
                 width: 220px !important;
                 height: 440px !important;
                 margin: 0 auto !important;
+            }
+            
+            /* App Demo Images */
+            .feature-img img,
+            #app-view img[src="App_Demo.png"],
+            img[alt="EverLights App Interface"] {
+                width: 240px !important;
+                height: auto !important;
+                margin: 0 auto !important;
+                display: block !important;
             }
             
             /* Gallery */
@@ -557,6 +567,36 @@
             /* FAQ */
             .faq-section { 
                 padding: 0 20px !important; 
+            }
+            
+            /* Quote Modal Mobile */
+            .modal-content {
+                padding: 40px 25px !important;
+                max-width: 95vw !important;
+                border-radius: 25px !important;
+            }
+            
+            .modal-header h2 {
+                font-size: 2rem !important;
+                letter-spacing: 0.08em !important;
+            }
+            
+            .modal-header p,
+            .modal-info {
+                font-size: 0.95rem !important;
+            }
+            
+            .project-type {
+                flex-direction: column !important;
+            }
+            
+            .type-option {
+                width: 100% !important;
+            }
+            
+            .form-submit {
+                width: 100% !important;
+                padding: 16px 30px !important;
             }
             
             .faq-item h4 { 
@@ -760,13 +800,7 @@
                 </ul>
             </div>
             <div class="feature-img" style="background: #000; padding: 40px; display: flex; justify-content: center; align-items: center; min-height: 500px;">
-                <div style="width: 240px; height: 480px; background: #111; border: 8px solid #222; border-radius: 40px; position: relative; padding: 20px; display: flex; flex-direction: column; gap: 15px;">
-                    <div style="width: 60px; height: 4px; background: #333; border-radius: 10px; align-self: center;"></div>
-                    <div style="width: 100%; aspect-ratio: 1/1; border-radius: 50%; background: conic-gradient(red, yellow, lime, aqua, blue, magenta, red); border: 10px solid rgba(255,255,255,0.1);"></div>
-                    <div style="background: rgba(255,255,255,0.05); height: 40px; border-radius: 12px; display: flex; align-items: center; padding: 0 15px; font-size: 0.8rem; color: var(--accent-blue);">Schedule: 8:00 PM</div>
-                    <div style="background: rgba(255,255,255,0.05); height: 40px; border-radius: 12px; display: flex; align-items: center; padding: 0 15px; font-size: 0.8rem; color: var(--accent-green);">Pattern: Warm Glow</div>
-                    <div style="margin-top: auto; background: var(--accent-blue); height: 45px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 700; color: black; font-size: 0.9rem;">APPLY</div>
-                </div>
+                <img src="App_Demo.png" alt="EverLights App Interface" style="width: 300px; height: auto; border-radius: 40px; box-shadow: 0 20px 60px rgba(0,0,0,0.5);">
             </div>
         </section>
 
@@ -1055,13 +1089,7 @@
                     </div>
                 </div>
                 <div style="display: flex; justify-content: center;">
-                    <div style="width: 280px; height: 560px; background: #111; border: 10px solid #222; border-radius: 50px; position: relative; padding: 25px; display: flex; flex-direction: column; gap: 18px; box-shadow: 0 20px 60px rgba(0,0,0,0.5);">
-                        <div style="width: 80px; height: 5px; background: #333; border-radius: 10px; align-self: center;"></div>
-                        <div style="width: 100%; aspect-ratio: 1/1; border-radius: 50%; background: conic-gradient(red, yellow, lime, aqua, blue, magenta, red); border: 12px solid rgba(255,255,255,0.1);"></div>
-                        <div style="background: rgba(255,255,255,0.05); height: 48px; border-radius: 14px; display: flex; align-items: center; padding: 0 18px; font-size: 0.9rem; color: var(--accent-blue);">Schedule: 8:00 PM</div>
-                        <div style="background: rgba(255,255,255,0.05); height: 48px; border-radius: 14px; display: flex; align-items: center; padding: 0 18px; font-size: 0.9rem; color: var(--accent-green);">Pattern: Warm Glow</div>
-                        <div style="margin-top: auto; background: var(--accent-blue); height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-weight: 800; color: black; font-size: 1rem;">APPLY CHANGES</div>
-                    </div>
+                    <img src="App_Demo.png" alt="EverLights App Interface" style="width: 350px; height: auto; border-radius: 40px; box-shadow: 0 20px 60px rgba(0,0,0,0.5);">
                 </div>
             </div>
 
@@ -1428,23 +1456,46 @@
                 details: document.getElementById('details').value
             };
 
-            // For now, just log the data (you'll need to connect this to your backend/email service)
-            console.log('Form submitted:', formData);
-            
-            // Show success message
-            alert('Thank you! We\'ll get back to you within 24 hours.');
-            
-            // Reset form and close modal
-            event.target.reset();
-            // Reset project type to residential
-            document.querySelectorAll('.type-option').forEach(opt => {
-                opt.classList.remove('selected');
+            // Disable submit button to prevent double submissions
+            const submitBtn = event.target.querySelector('.form-submit');
+            const originalText = submitBtn.textContent;
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting...';
+
+            // Send to Google Sheets
+            fetch('https://script.google.com/macros/s/AKfycbxs1V2NPgyTH__OMSZZjHRxAEj9StcMvCMLXQjfKa7Lvykqex5Si23BChOI4x2K4yDa3Q/exec', {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(() => {
+                // Show success message
+                alert('Thank you! We\'ll get back to you within 24 hours.');
+                
+                // Reset form and close modal
+                event.target.reset();
+                
+                // Reset project type to residential
+                document.querySelectorAll('.type-option').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+                document.querySelector('.type-option').classList.add('selected');
+                document.getElementById('projectType').value = 'residential';
+                
+                closeModal();
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                alert('There was an error submitting your request. Please call us at (801) 427-4110.');
+            })
+            .finally(() => {
+                // Re-enable submit button
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
             });
-            document.querySelector('.type-option').classList.add('selected');
-            document.getElementById('projectType').value = 'residential';
-            closeModal();
-            
-            // TODO: Add actual form submission to your email service or backend
         }
 
         window.addEventListener('scroll', updateBackgroundOnScroll);
