@@ -3,80 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO Meta Tags -->
-    <title>Let It Glow | Permanent Christmas Lights - Orem, Utah | EverLights Dealer</title>
-    <meta name="description" content="Professional EverLights permanent lighting installation serving the Wasatch Front. 50,000 hour lifespan, 16 million colors, year-round use. Licensed & insured. Free quote!">
-    <meta name="keywords" content="permanent christmas lights, everlights, permanent lighting, orem utah, wasatch front, year round lighting, exterior lighting">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://letitglowutah.com/">
-    <meta property="og:title" content="Let It Glow | Permanent Christmas Lights - Orem, Utah">
-    <meta property="og:description" content="Professional EverLights permanent lighting installation. 50,000 hour lifespan, 16 million colors, year-round use. Serving the Wasatch Front.">
-    <meta property="og:image" content="https://letitglowutah.com/Logo.png">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://letitglowutah.com/">
-    <meta property="twitter:title" content="Let It Glow | Permanent Christmas Lights - Orem, Utah">
-    <meta property="twitter:description" content="Professional EverLights permanent lighting installation. 50,000 hour lifespan, 16 million colors, year-round use.">
-    <meta property="twitter:image" content="https://letitglowutah.com/Logo.png">
-
-    <!-- Local Business Schema -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Let It Glow",
-      "description": "Professional permanent lighting installation serving the Wasatch Front",
-      "url": "https://letitglowutah.com",
-      "telephone": "+1-385-444-2094",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Orem",
-        "addressRegion": "UT",
-        "addressCountry": "US"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 40.2969,
-        "longitude": -111.6946
-      },
-      "priceRange": "$$",
-      "image": "https://letitglowutah.com/Logo.png",
-      "areaServed": {
-        "@type": "GeoCircle",
-        "geoMidpoint": {
-          "@type": "GeoCoordinates",
-          "latitude": 40.2969,
-          "longitude": -111.6946
-        },
-        "geoRadius": "100000"
-      },
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Permanent Lighting Services",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Residential Permanent Lighting Installation"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Commercial Permanent Lighting Installation"
-            }
-          }
-        ]
-      }
-    }
-    </script>
-    
+    <title>Let It Glow</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
@@ -722,7 +649,7 @@
   <header>
         <div class="nav-container">
             <div class="logo-group" onclick="showView('home')" style="cursor: pointer; display: flex; align-items: center;">
-                <img src="Logo.png" alt="Let It Glow - EverLights Permanent Lighting" style="height: 200px; display: block;">
+                <img src="Logo.png" alt="Let It Glow" style="height: 200px; display: block;">
             </div>
             <div style="display: flex; gap: 25px; align-items: center;">
                 <a onclick="showView('story')" style="color: white; text-decoration: none; font-weight: 600; cursor: pointer; font-size: 0.95rem;">About</a>
@@ -739,14 +666,23 @@
             <p class="tagline reveal">Permanent architectural lighting that disappears by day and dazzles by night.</p>
         </section>
 
+        <section class="reveal" style="max-width: 1100px; margin: 0 auto 80px; padding: 0 24px;">
+            <h2 style="text-align: center; margin-bottom: 40px; font-size: 3rem; font-weight: 700;">See the Difference</h2>
+            <div class="comparison-container">
+                <img src="DSC06342-HDR.jpg" class="comparison-img-after">
+                <div class="img-before" id="sl-before-main"><img src="DSC06270-HDR.jpg"></div>
+                <input type="range" min="0" max="100" value="50" class="comparison-slider" oninput="document.getElementById('sl-before-main').style.width = this.value + '%'">
+            </div>
+        </section>
+
         <section class="grid-container">
             <div class="selection-card reveal" onclick="showView('residential')">
-                <i data-lucide="home" style="color: var(--accent-blue); margin-bottom: 25px;" size="48"></i>
+                <i data-lucide="home" style="color: var(--accent-blue); margin-bottom: 25px;" width="80" height="80"></i>
                 <h2>For My Home</h2>
                 <p>Invisible tracks custom matched to your home's trim.</p>
             </div>
             <div class="selection-card reveal" onclick="showView('commercial')">
-                <i data-lucide="building-2" style="color: var(--accent-purple); margin-bottom: 25px;" size="48"></i>
+                <i data-lucide="building-2" style="color: var(--accent-purple); margin-bottom: 25px;" width="80" height="80"></i>
                 <h2>For My Business</h2>
                 <p>High impact lighting that turns storefronts into landmarks.</p>
             </div>
@@ -782,17 +718,17 @@
         </div>
 
         <section class="reveal">
-            <h2 style="text-align: center; font-size: 3rem; font-weight: 700;">Gallery</h2>
+            <h2 style="text-align: center; font-size: 3rem; font-weight: 700;">Homes Lit</h2>
             <div class="gallery-container">
                 <div class="scrolly-wrapper">
-    <div class="gallery-item"><img src="DSC06993-HDR.jpg" alt="Permanent Christmas lights on residential home roofline"></div>
-    <div class="gallery-item"><img src="IMG_2338.jpeg" alt="Year-round exterior lighting installation on Utah home"></div>
-    <div class="gallery-item"><img src="House4.jpg" alt="EverLights permanent lighting system on modern home"></div>
-    <div class="gallery-item"><img src="Smarty.jpg" alt="Commercial building with permanent LED lighting"></div>
-    <div class="gallery-item"><img src="House5.jpg" alt="Custom color matched permanent lights on home trim"></div>
-    <div class="gallery-item"><img src="Tagg.jpg" alt="Business storefront with permanent exterior lighting"></div>
-    <div class="gallery-item"><img src="DSC02578-HDR.jpg" alt="Residential permanent lighting installation at night"></div>
-    <div class="gallery-item"><img src="House1.jpg" alt="Professional permanent Christmas light installation"></div>
+    <div class="gallery-item"><img src="DSC06993-HDR.jpg"></div>
+    <div class="gallery-item"><img src="House3.jpg"></div>
+    <div class="gallery-item"><img src="House4.jpg"></div>
+    <div class="gallery-item"><img src="DSC04630-HDR.jpg"></div>
+    <div class="gallery-item"><img src="House5.jpg"></div>
+    <div class="gallery-item"><img src="House2.jpg"></div>
+    <div class="gallery-item"><img src="DSC02578-HDR.jpg"></div>
+    <div class="gallery-item"><img src="House1.jpg"></div>
 </div>
             </div>
         </section>
@@ -826,7 +762,7 @@
                     <li><i data-lucide="check-circle" size="18"></i> Low-Profile "Cloud" Lens</li>
                 </ul>
             </div>
-            <div class="feature-img"><img src="Zoom.gif" alt="Close-up view of color matched EverLights track blending with home trim"></div>
+            <div class="feature-img"><img src="Zoom.gif"></div>
         </section>
 
         <!-- YEAR ROUND USE SECTION -->
@@ -872,20 +808,268 @@
                 </ul>
             </div>
             <div class="feature-img" style="background: #000; padding: 40px; display: flex; justify-content: center; align-items: center; min-height: 500px;">
-                <div style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 50px;">
-                    <img src="App_Demo.jpg" alt="EverLights App Interface" style="width: 300px; height: auto; border-radius: 40px; box-shadow: 0 30px 80px rgba(0,0,0,0.8); display: block;">
+    <div class="evl-phone-shell">
+        <div class="evl-phone-screen" id="evlPhoneScreen">
+
+            <div class="evl-app-header">
+                <i data-lucide="chevron-left" width="20" height="20"></i>
+                <div class="evl-pattern-name">Create Pattern</div>
+                <i data-lucide="more-horizontal" width="20" height="20"></i>
+            </div>
+
+            <div class="evl-color-presets">
+                <button class="evl-preset" data-color="#ef4444" style="background:#ef4444" title="Red"></button>
+                <button class="evl-preset" data-color="#2563eb" style="background:#2563eb" title="Blue"></button>
+                <button class="evl-preset" data-color="#22c55e" style="background:#22c55e" title="Green"></button>
+                <button class="evl-preset" data-color="#d946ef" style="background:#d946ef" title="Magenta"></button>
+                <button class="evl-preset evl-preset-current" id="evlCurrentSwatch" title="Custom color"></button>
+            </div>
+
+            <div class="evl-controls-row">
+                <div class="evl-wheel-mini" title="Custom color wheel">
+                    <span class="evl-wheel-mini-ring"></span>
+                </div>
+                <div class="evl-stepper">
+                    <button class="evl-step-btn" id="evlStepMinus" type="button" aria-label="Decrease">−</button>
+                    <span class="evl-step-value" id="evlStepValue">5</span>
+                    <button class="evl-step-btn" id="evlStepPlus" type="button" aria-label="Increase">+</button>
+                </div>
+                <button class="evl-power-btn" id="evlPowerBtn" type="button" aria-label="Power">
+                    <i data-lucide="power" width="20" height="20"></i>
+                </button>
+            </div>
+
+            <div class="evl-wheel-wrap">
+                <div class="evl-color-wheel" id="evlColorWheel">
+                    <div class="evl-wheel-handle" id="evlWheelHandle"></div>
                 </div>
             </div>
-        </section>
 
-       <section class="reveal" style="max-width: 1100px; margin: 120px auto; padding: 0 24px;">
-            <h2 style="text-align: center; margin-bottom: 40px; font-size: 3rem; font-weight: 700;">See the Difference</h2>
-            <div class="comparison-container">
-                <img src="DSC06342-HDR.jpg" alt="Home with EverLights permanent lighting turned on at night" class="comparison-img-after">
-                <div class="img-before" id="sl-before-main"><img src="DSC06270-HDR.jpg" alt="Same home with lights turned off showing invisible daytime appearance"></div>
-                <input type="range" min="0" max="100" value="50" class="comparison-slider" oninput="document.getElementById('sl-before-main').style.width = this.value + '%'">
+            <div class="evl-brightness-wrap">
+                <input type="range" min="0" max="100" value="80" class="evl-brightness-slider" id="evlBrightness" aria-label="Brightness">
             </div>
-        </section>
+
+            <div class="evl-effects">
+                <div class="evl-effects-label">Effects:</div>
+                <button class="evl-effect-pill active" type="button" data-effect="Twinkle">Twinkle</button>
+                <button class="evl-effect-pill" type="button" data-effect="Fade">Fade</button>
+                <button class="evl-effect-pill" type="button" data-effect="Chase">Chase</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+</section>
+
+<style>
+    .evl-phone-shell {
+        width: 320px;
+        max-width: 100%;
+        background: #000;
+        border-radius: 46px;
+        padding: 14px;
+        box-shadow: 0 30px 80px rgba(0,0,0,0.8);
+    }
+    .evl-phone-screen {
+        background: #161616;
+        border-radius: 34px;
+        padding: 24px 20px 28px;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        transition: filter 0.3s;
+    }
+    .evl-app-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: rgba(255,255,255,0.06);
+        border-radius: 14px;
+        padding: 12px 14px;
+        color: rgba(255,255,255,0.45);
+    }
+    .evl-pattern-name { font-style: italic; font-size: 0.95rem; color: rgba(255,255,255,0.75); }
+    .evl-color-presets { display: flex; align-items: center; gap: 16px; padding-left: 4px; }
+    .evl-preset { width: 16px; height: 16px; border-radius: 50%; border: none; cursor: pointer; padding: 0; transition: 0.2s; }
+    .evl-preset:not(.evl-preset-current):hover { transform: scale(1.25); }
+    .evl-preset-current {
+        width: 32px; height: 32px; border: 3px solid rgba(255,255,255,0.85);
+        margin-left: auto; cursor: default;
+    }
+    .evl-controls-row { display: flex; align-items: center; gap: 14px; }
+    .evl-wheel-mini {
+        width: 48px; height: 48px; border-radius: 50%; flex-shrink: 0; padding: 5px;
+        background: conic-gradient(red, yellow, lime, cyan, blue, magenta, red);
+    }
+    .evl-wheel-mini-ring { display: block; width: 100%; height: 100%; border-radius: 50%; background: #161616; }
+    .evl-stepper {
+        flex: 1; display: flex; align-items: center; justify-content: space-between;
+        background: rgba(255,255,255,0.06); border-radius: 16px; padding: 12px 18px;
+        color: white; font-weight: 700; font-size: 1.1rem;
+    }
+    .evl-step-btn { background: none; border: none; color: white; font-size: 1.4rem; cursor: pointer; line-height: 1; padding: 0 4px; }
+    .evl-power-btn {
+        width: 48px; height: 48px; border-radius: 50%; background: rgba(255,255,255,0.08);
+        border: none; color: white; display: flex; align-items: center; justify-content: center;
+        cursor: pointer; flex-shrink: 0; transition: 0.2s;
+    }
+    .evl-power-btn.evl-off { color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.03); }
+    .evl-wheel-wrap { display: flex; justify-content: center; padding: 6px 0; }
+    .evl-color-wheel {
+        position: relative; width: 230px; height: 230px; max-width: 100%; border-radius: 50%;
+        background: conic-gradient(red, yellow, lime, cyan, blue, magenta, red);
+        cursor: pointer; touch-action: none;
+    }
+    .evl-color-wheel::after { content: ""; position: absolute; inset: 34px; border-radius: 50%; background: #161616; }
+    .evl-wheel-handle {
+        position: absolute; width: 34px; height: 34px; border-radius: 50%;
+        border: 3px solid rgba(0,0,0,0.55); box-shadow: 0 0 0 2px rgba(255,255,255,0.85), 0 2px 8px rgba(0,0,0,0.5);
+        top: 50%; left: 50%; transform: translate(-50%, -50%); cursor: grab; z-index: 2;
+    }
+    .evl-wheel-handle:active { cursor: grabbing; }
+    .evl-brightness-wrap { padding: 4px 2px; }
+    .evl-brightness-slider {
+        -webkit-appearance: none; appearance: none; width: 100%; height: 14px;
+        border-radius: 10px; outline: none; cursor: pointer; background: #444;
+    }
+    .evl-brightness-slider::-webkit-slider-thumb {
+        -webkit-appearance: none; width: 26px; height: 26px; border-radius: 50%;
+        background: white; box-shadow: 0 2px 6px rgba(0,0,0,0.5); cursor: pointer; margin-top: -6px;
+    }
+    .evl-brightness-slider::-moz-range-thumb {
+        width: 26px; height: 26px; border-radius: 50%; background: white; border: none; cursor: pointer;
+    }
+    .evl-brightness-slider::-moz-range-track { height: 14px; border-radius: 10px; }
+    .evl-effects { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .evl-effects-label { color: rgba(255,255,255,0.55); font-size: 0.95rem; width: 100%; }
+    .evl-effect-pill {
+        background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: white;
+        padding: 8px 16px; border-radius: 20px; font-size: 0.9rem; cursor: pointer; transition: 0.2s;
+        font-family: 'Outfit', sans-serif;
+    }
+    .evl-effect-pill.active { background: var(--accent-green); border-color: var(--accent-green); color: #06281d; font-weight: 700; }
+    @media (max-width: 768px) {
+        .feature-img > div.evl-phone-shell { width: 280px !important; height: auto !important; }
+        .evl-color-wheel { width: 200px !important; height: 200px !important; }
+    }
+</style>
+
+<script>
+(function() {
+    const wheel = document.getElementById('evlColorWheel');
+    const handle = document.getElementById('evlWheelHandle');
+    const currentSwatch = document.getElementById('evlCurrentSwatch');
+    const brightness = document.getElementById('evlBrightness');
+    const powerBtn = document.getElementById('evlPowerBtn');
+    const presets = document.querySelectorAll('.evl-preset:not(.evl-preset-current)');
+    const stepValue = document.getElementById('evlStepValue');
+    const stepMinus = document.getElementById('evlStepMinus');
+    const stepPlus = document.getElementById('evlStepPlus');
+    const effectPills = document.querySelectorAll('.evl-effect-pill');
+    const phoneScreen = document.getElementById('evlPhoneScreen');
+
+    if (!wheel) return;
+
+    let hue = 35;
+    let dragging = false;
+    let stepNum = 5;
+    let isOn = true;
+
+    function applyScreenBrightness() {
+        const val = brightness.value;
+        phoneScreen.style.filter = isOn ? `brightness(${0.55 + (val / 100) * 0.6})` : 'brightness(0.3)';
+    }
+
+    function updateFromHue() {
+        const rect = wheel.getBoundingClientRect();
+        const r = rect.width / 2 - 17;
+        const rad = (hue - 90) * Math.PI / 180;
+        const x = rect.width / 2 + r * Math.cos(rad);
+        const y = rect.height / 2 + r * Math.sin(rad);
+        handle.style.left = x + 'px';
+        handle.style.top = y + 'px';
+        const color = `hsl(${hue}, 90%, 55%)`;
+        handle.style.background = color;
+        currentSwatch.style.background = color;
+        brightness.style.background = `linear-gradient(to right, #000, ${color})`;
+    }
+
+    function setHueFromPointer(clientX, clientY) {
+        const rect = wheel.getBoundingClientRect();
+        const cx = rect.left + rect.width / 2;
+        const cy = rect.top + rect.height / 2;
+        let angle = Math.atan2(clientY - cy, clientX - cx) * 180 / Math.PI + 90;
+        if (angle < 0) angle += 360;
+        hue = angle;
+        updateFromHue();
+    }
+
+    function startDrag(e) {
+        if (!isOn) return;
+        dragging = true;
+        const point = e.touches ? e.touches[0] : e;
+        setHueFromPointer(point.clientX, point.clientY);
+        e.preventDefault();
+    }
+    function moveDrag(e) {
+        if (!dragging) return;
+        const point = e.touches ? e.touches[0] : e;
+        setHueFromPointer(point.clientX, point.clientY);
+    }
+    function endDrag() { dragging = false; }
+
+    wheel.addEventListener('mousedown', startDrag);
+    wheel.addEventListener('touchstart', startDrag, { passive: false });
+    window.addEventListener('mousemove', moveDrag);
+    window.addEventListener('touchmove', moveDrag, { passive: false });
+    window.addEventListener('mouseup', endDrag);
+    window.addEventListener('touchend', endDrag);
+
+    function hexToHue(hex) {
+        const r = parseInt(hex.substr(1, 2), 16) / 255;
+        const g = parseInt(hex.substr(3, 2), 16) / 255;
+        const b = parseInt(hex.substr(5, 2), 16) / 255;
+        const max = Math.max(r, g, b), min = Math.min(r, g, b);
+        let h = 0;
+        if (max === min) h = 0;
+        else if (max === r) h = (60 * ((g - b) / (max - min)) + 360) % 360;
+        else if (max === g) h = 60 * ((b - r) / (max - min)) + 120;
+        else h = 60 * ((r - g) / (max - min)) + 240;
+        return h;
+    }
+
+    presets.forEach(btn => {
+        btn.addEventListener('click', () => {
+            if (!isOn) return;
+            hue = hexToHue(btn.dataset.color);
+            updateFromHue();
+        });
+    });
+
+    brightness.addEventListener('input', applyScreenBrightness);
+
+    powerBtn.addEventListener('click', () => {
+        isOn = !isOn;
+        powerBtn.classList.toggle('evl-off', !isOn);
+        wheel.style.opacity = isOn ? '1' : '0.35';
+        applyScreenBrightness();
+    });
+
+    stepMinus.addEventListener('click', () => { stepNum = Math.max(1, stepNum - 1); stepValue.textContent = stepNum; });
+    stepPlus.addEventListener('click', () => { stepNum = Math.min(10, stepNum + 1); stepValue.textContent = stepNum; });
+
+    effectPills.forEach(pill => {
+        pill.addEventListener('click', () => {
+            effectPills.forEach(p => p.classList.remove('active'));
+            pill.classList.add('active');
+        });
+    });
+
+    window.addEventListener('resize', updateFromHue);
+    applyScreenBrightness();
+    updateFromHue();
+})();
+</script>
 
         <!-- TESTIMONIALS SECTION -->
         <section class="reveal" style="max-width: 1100px; margin: 120px auto; padding: 0 24px;">
@@ -1027,13 +1211,13 @@
             <h2 style="text-align: center; font-size: 2.5rem; font-weight: 700; margin-bottom: 50px;">Residential Installations</h2>
             <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px;">
                 <div style="aspect-ratio: 1/1; border-radius: 30px; overflow: hidden; background: var(--bg-card);">
-                    <img src="House1.jpg" alt="Residential permanent lighting installation on single family home" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="DSC06993-HDR.jpg" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
                 <div style="aspect-ratio: 1/1; border-radius: 30px; overflow: hidden; background: var(--bg-card);">
-                    <img src="House5.jpg" alt="Custom permanent Christmas lights on residential roofline" style="width: 100%; height: 100%; object-fit: cover;"> 
+                    <img src="House1-5.jpg" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
                 <div style="aspect-ratio: 1/1; border-radius: 30px; overflow: hidden; background: var(--bg-card);">
-                    <img src="House3.jpg" alt="Year-round permanent exterior lighting on Utah home" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="House3.jpg" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
             </div>
         </section>
@@ -1093,15 +1277,15 @@
             <h2 style="text-align: center; font-size: 2.5rem; font-weight: 700; margin-bottom: 50px;">Commercial Installations</h2>
             <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px;">
                 <div style="aspect-ratio: 1/1; border-radius: 30px; overflow: hidden; background: var(--bg-card);">
-                    <img src="Academy.jpg" alt="Commercial building permanent lighting installation" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="House4.jpg" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
                 <div style="aspect-ratio: 1/1; border-radius: 30px; overflow: hidden; background: var(--bg-card);">
-                    <img src="IMG_2338.jpeg" alt="Business storefront with EverLights permanent exterior lighting" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="House5.jpg" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
                 <div style="aspect-ratio: 1/1; border-radius: 30px; overflow: hidden; background: var(--bg-card);">
-                    <img src="Lindon.jpg" alt="Commercial property with custom permanent LED lighting" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="DSC04630-HDR.jpg" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
-            </div> 
+            </div>
         </section>
         
         <div class="types-grid">
@@ -1244,7 +1428,7 @@
 
             <div class="faq-item">
                 <h4>How long do the lights last?</h4>
-                <p>Everlights are rated for 50,000 hours. That's over 20 years if you run them 3 to 5 hours nightly. These aren't your typical holiday lights that burn out after one season.</p>
+                <p>Our lights are rated for 50,000 hours. That's over 20 years if you run them 3 to 5 hours nightly. These aren't your typical holiday lights that burn out after one season.</p>
             </div>
 
             <div class="faq-item">
@@ -1259,12 +1443,12 @@
 
             <div class="faq-item">
                 <h4>What areas do you serve?</h4>
-                <p>We proudly serve the Wasatch Front and surrounding communities. Not sure if we're in your area? Give us a call and let's find out!</p>
+                <p>We serve the entire Wasatch Front and surrounding communities within a 100 mile radius of Orem, Utah. Not sure if we cover your area? Give us a call!</p>
             </div>
 
             <div class="faq-item">
                 <h4>How do I get started?</h4>
-                <p>Simple! Call us at <strong style="color: var(--accent-yellow);">(385) 444-2094</strong> or click the "Free Quote" button. We'll schedule a free consultation, discuss your vision, and provide a custom quote with no obligation.</p>
+                <p>Simple! Call us at <strong style="color: var(--accent-yellow);">(801) 427-4110</strong> or click the "Free Quote" button. We'll schedule a free consultation, discuss your vision, and provide a custom quote with no obligation.</p>
             </div>
 
             <div style="margin-top: 80px; padding: 50px; background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 40px; text-align: center;">
@@ -1284,7 +1468,7 @@
                 
                 <!-- EverLights Authorized Dealer -->
                 <div>
-                    <img src="Everlights.png" alt="EverLights Authorized Dealer Badge" style="height: 300px; margin-bottom: 15px; filter: brightness(0) invert(1);">
+                    <img src="Everlights.png" alt="EverLights Authorized Dealer" style="height: 300px; margin-bottom: 15px; filter: brightness(0) invert(1);">
                     <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 5px;"></h4>
                     <p style="color: var(--text-secondary); font-size: 0.9rem;"></p>
                 </div>
@@ -1312,7 +1496,7 @@
     <div class="contact-card reveal">
         <h2>Ready to Glow?</h2>
         <a onclick="openModal()" class="footer-cta" style="cursor: pointer;">Get a Free Quote</a>
-        <p style="margin-top: 40px; color: var(--text-secondary); font-weight: 600; font-size: 1.3rem; letter-spacing: 0.1em;">(385) 444-2094</p>
+        <p style="margin-top: 40px; color: var(--text-secondary); font-weight: 600; font-size: 1.3rem; letter-spacing: 0.1em;">(801) 427-4110</p>
         <p style="margin-top: 30px; color: var(--text-secondary); font-weight: 500; font-size: 1.1rem;">Serving the Wasatch Front<br><span style="font-size: 0.95rem; color: #666;">Based in Orem, Utah</span></p>
     </div>
 </footer>
@@ -1331,7 +1515,7 @@
                 <strong style="font-size: 1.2rem; color: white;">Let It Glow</strong>
                 <div style="margin-top: 8px;">Orem, Utah</div>
                 <div>Serving the Wasatch Front</div>
-                <div style="margin-top: 8px;"><a href="tel:3854442094" style="color: var(--accent-yellow); text-decoration: underline;">(385) 444-2094</a></div>
+                <div style="margin-top: 8px;"><a href="tel:8014274110" style="color: var(--accent-yellow); text-decoration: underline;">(801) 427-4110</a></div>
             </div>
             
             <form class="quote-form" onsubmit="handleFormSubmit(event)">
@@ -1481,7 +1665,7 @@
             })
             .catch((error) => {
                 console.error('Error:', error);
-                alert('There was an error submitting your request. Please call us at (385) 444-2094.');
+                alert('There was an error submitting your request. Please call us at (801) 427-4110.');
             })
             .finally(() => {
                 // Re-enable submit button
